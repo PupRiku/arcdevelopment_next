@@ -7,9 +7,6 @@ import Button from '@material-ui/core/Button';
 import ButtonArrow from './ButtonArrow';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import background from '../../assets/background.jpg';
-import mobileBackground from '../../assets/mobileBackground.jpg';
-
 const useStyles = makeStyles((theme) => ({
   learnButton: {
     ...theme.typography.learnButton,
@@ -21,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   background: {
-    backgroundImage: `url(${background})`,
+    backgroundImage: url('/assets/background.jpg'),
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
@@ -29,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     height: '60em',
     width: '100%',
     [theme.breakpoints.down('md')]: {
-      backgroundImage: `url(${mobileBackground})`,
+      backgroundImage: url('/assets/mobileBackground.jpg'),
       backgroundAttachment: 'inherit',
     },
   },

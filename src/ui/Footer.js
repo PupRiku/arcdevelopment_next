@@ -4,11 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 
-import footerAdornment from '../../assets/Footer Adornment.svg';
-import facebook from '../../assets/facebook.svg';
-import twitter from '../../assets/twitter.svg';
-import instagram from '../../assets/instagram.svg';
-
 const useStyles = makeStyles((theme) => ({
   footer: {
     backgroundColor: theme.palette.common.blue,
@@ -217,7 +212,7 @@ export default function Footer(props) {
       </Hidden>
       <img
         alt="black decorative slash"
-        src={footerAdornment}
+        src="/assets/footerAdornment.svg"
         className={classes.adornment}
       />
       <Grid
@@ -233,7 +228,11 @@ export default function Footer(props) {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img alt="facebook logo" src={facebook} className={classes.icon} />
+          <img
+            alt="facebook logo"
+            src="/assets/facebook.svg"
+            className={classes.icon}
+          />
         </Grid>
         <Grid
           item
@@ -242,7 +241,11 @@ export default function Footer(props) {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img alt="twitter logo" src={twitter} className={classes.icon} />
+          <img
+            alt="twitter logo"
+            src="/assets/twitter.svg"
+            className={classes.icon}
+          />
         </Grid>
         <Grid
           item
@@ -251,7 +254,11 @@ export default function Footer(props) {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img alt="instagram logo" src={instagram} className={classes.icon} />
+          <img
+            alt="instagram logo"
+            src="/assets/instagram.svg"
+            className={classes.icon}
+          />
         </Grid>
       </Grid>
     </footer>

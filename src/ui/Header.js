@@ -19,8 +19,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import logo from '../../assets/logo.svg';
-
 function ElevationScroll(props) {
   const { children } = props;
 
@@ -357,7 +355,7 @@ export default function Header(props) {
               onClick={() => props.setValue(0)}
               className={classes.logoContainer}
             >
-              <img src={logo} alt="company logo" className={classes.logo} />
+              <img src="/assets/logo.svg" alt="company logo" className={classes.logo} />
             </Button>
             {matches ? drawer : tabs}
           </Toolbar>
