@@ -16,7 +16,7 @@ import ButtonArrow from '../src/ui/ButtonArrow';
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    backgroundImage: url('/assets/background.jpg'),
+    backgroundImage: `url('/assets/background.jpg')`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
