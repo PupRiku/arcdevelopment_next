@@ -62,7 +62,8 @@ export default function Services(props) {
           content="Bringing West Coast Technology to the Midwest | Services"
           key="og:title"
         />
-        <meta property="og:url" content="arc.com/services" />
+        <meta property="og:url" key="og:url" content="arc.com/services" />
+        <link rel="canonical" key="canonical" href="arc.com/services" />
       </Head>
       <Grid
         item

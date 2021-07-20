@@ -200,7 +200,8 @@ export default function Contact(props) {
           content="Bringing West Coast Technology to the Midwest | Contact Us"
           key="og:title"
         />
-        <meta property="og:url" content="arc.com/contact" />
+        <meta property="og:url" key="og:url" content="arc.com/contact" />
+        <link rel="canonical" key="canonical" href="arc.com/contact" />
       </Head>
       <Grid
         item

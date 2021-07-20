@@ -53,7 +53,8 @@ export default function CustomSoftware(props) {
           content="Bringing West Coast Technology to the Midwest | The Revolution"
           key="og:title"
         />
-        <meta property="og:url" content="arc.com/revolution" />
+        <meta property="og:url" key="og:url" content="arc.com/revolution" />
+        <link rel="canonical" key="canonical" href="arc.com/revolution" />
       </Head>
       <Grid item className={classes.rowContainer} style={{ marginTop: "2em" }}>
         <Typography
