@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Head from 'next/head';
-import { ThemeProvider } from '@material-ui/core/styles';
-import Theme from '../src/ui/Theme';
-import Header from '../src/ui/Header';
-import Footer from '../src/ui/Footer';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import Head from "next/head";
+import { ThemeProvider } from "@material-ui/core/styles";
+import Theme from "../src/ui/Theme";
+import Header from "../src/ui/Header";
+import Footer from "../src/ui/Footer";
 
 export default function MyApp(props) {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -13,7 +13,7 @@ export default function MyApp(props) {
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
+    const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }

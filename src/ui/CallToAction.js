@@ -1,33 +1,33 @@
-import React from 'react';
-import Link from '../Link';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import ButtonArrow from './ButtonArrow';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import React from "react";
+import Link from "../Link";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import ButtonArrow from "./ButtonArrow";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   learnButton: {
     ...theme.typography.learnButton,
-    fontSize: '0.7rem',
+    fontSize: "0.7rem",
     height: 35,
     padding: 5,
-    [theme.breakpoints.down('sm')]: {
-      marginBottom: '2em',
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "2em",
     },
   },
   background: {
     backgroundImage: `url('/assets/background.jpg')`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    backgroundAttachment: 'fixed',
-    backgroundRepeat: 'no-repeat',
-    height: '60em',
-    width: '100%',
-    [theme.breakpoints.down('md')]: {
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundAttachment: "fixed",
+    backgroundRepeat: "no-repeat",
+    height: "60em",
+    width: "100%",
+    [theme.breakpoints.down("md")]: {
       backgroundImage: `url('/assets/mobileBackground.jpg')`,
-      backgroundAttachment: 'inherit',
+      backgroundAttachment: "inherit",
     },
   },
   estimateButton: {
@@ -36,13 +36,13 @@ const useStyles = makeStyles((theme) => ({
     height: 80,
     width: 205,
     backgroundColor: theme.palette.common.orange,
-    fontSize: '1.5rem',
-    marginRight: '5em',
-    marginLeft: '2em',
-    '&:hover': {
+    fontSize: "1.5rem",
+    marginRight: "5em",
+    marginLeft: "2em",
+    "&:hover": {
       backgroundColor: theme.palette.secondary.light,
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       marginRight: 0,
       marginLeft: 0,
     },
@@ -52,21 +52,21 @@ const useStyles = makeStyles((theme) => ({
 export default function CallToAction(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Grid
       container
       alignItems="center"
-      justify={matchesSM ? 'center' : 'space-between'}
+      justify={matchesSM ? "center" : "space-between"}
       className={classes.background}
-      direction={matchesSM ? 'column' : 'row'}
+      direction={matchesSM ? "column" : "row"}
     >
       <Grid
         item
         style={{
-          marginLeft: matchesSM ? 0 : '5em',
-          textAlign: matchesSM ? 'center' : 'inherit',
+          marginLeft: matchesSM ? 0 : "5em",
+          textAlign: matchesSM ? "center" : "inherit",
         }}
       >
         <Grid container direction="column">
@@ -76,10 +76,10 @@ export default function CallToAction(props) {
               <br />
               Revolutionary Results.
             </Typography>
-            <Typography variant="subtitle2" style={{ fontSize: '1.5rem' }}>
+            <Typography variant="subtitle2" style={{ fontSize: "1.5rem" }}>
               Take advantage of the 21st Century.
             </Typography>
-            <Grid container justify={matchesSM ? 'center' : undefined} item>
+            <Grid container justify={matchesSM ? "center" : undefined} item>
               <Button
                 component={Link}
                 href="/revolution"
