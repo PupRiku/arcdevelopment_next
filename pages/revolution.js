@@ -5,8 +5,6 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import iterate from '../assets/iterateIcon.svg';
-
 import technologyAnimation from '../src/animations/technologyAnimation/data.json';
 
 import CallToAction from '../src/ui/CallToAction';

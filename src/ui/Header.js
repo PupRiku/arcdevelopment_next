@@ -18,6 +18,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Hidden from '@material-ui/core/Hidden';
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -201,7 +202,9 @@ export default function Header(props) {
           }
           break;
         case '/estimate':
-          props.setValue(false);
+          if (props.value !== false) {
+            props.setValue(false);
+          }
           break;
         default:
           break;
@@ -357,7 +360,12 @@ export default function Header(props) {
             >
               <img src="/assets/logo.svg" alt="company logo" className={classes.logo} />
             </Button>
-            {matches ? drawer : tabs}
+            <Hidden mdDown>
+              {tabs}
+            </Hidden>
+            <Hidden lgUp>
+              {drawer}
+            </Hidden>
           </Toolbar>
         </AppBar>
       </ElevationScroll>

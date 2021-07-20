@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     height: '60em',
     paddingBottom: '10em',
     [theme.breakpoints.down('md')]: {
-      backgroundImage: url('/assets/mobileBackground.jpg'),
+      backgroundImage: `url('/assets/mobileBackground.jpg')`,
     },
   },
   estimateButton: {

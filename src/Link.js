@@ -57,6 +57,7 @@ function Link(props) {
       className={className}
       ref={innerRef}
       href={href}
+      underline="none"
       {...other}
     />
   );

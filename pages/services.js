@@ -87,7 +87,7 @@ export default function Services(props) {
             </Typography>
             <Button
               component={Link}
-              to="/mobileapps"
+              href="/mobileapps"
               variant="outlined"
               className={classes.learnButton}
               onClick={() => {
@@ -139,7 +139,7 @@ export default function Services(props) {
             </Typography>
             <Button
               component={Link}
-              to="/customsoftware"
+              href="/customsoftware"
               variant="outlined"
               className={classes.learnButton}
               onClick={() => {
@@ -190,7 +190,7 @@ export default function Services(props) {
             </Typography>
             <Button
               component={Link}
-              to="/websites"
+              href="/websites"
               variant="outlined"
               className={classes.learnButton}
               onClick={() => {
