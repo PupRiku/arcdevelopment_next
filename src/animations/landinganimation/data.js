@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import img_0 from "./img_0.png";
 import img_1 from "./img_1.png";
 import img_2 from "./img_2.png";
