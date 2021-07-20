@@ -758,6 +758,12 @@ export default function Estimate() {
           the cost of your custom software, mobile app, or website design and 
           development project!"
         />
+        <meta
+          property="og:title"
+          content="Bringing West Coast Technology to the Midwest | Free Estimate"
+          key="og:title"
+        />
+        <meta property="og:url" content="arc.com/estimate" />
       </Head>
       <Grid
         item

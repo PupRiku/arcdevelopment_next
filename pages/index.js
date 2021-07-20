@@ -149,6 +149,12 @@ export default function LandingPage(props) {
           cutting-edge optimizations. Use our free estimate calculator to check 
           your project cost!"
         />
+        <meta
+          property="og:title"
+          content="Bringing West Coast Technology to the Midwest | Arc Development"
+          key="og:title"
+        />
+        <meta property="og:url" content="arc.com" />
       </Head>
       <Grid item>
         {" "}

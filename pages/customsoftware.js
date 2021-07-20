@@ -82,9 +82,7 @@ export default function CustomSoftware(props) {
   return (
     <Grid container direction="column">
       <Head>
-        <title key="title">
-          Custom Software and Design - Free Estimate
-        </title>
+        <title key="title">Custom Software and Design - Free Estimate</title>
         <meta
           name="description"
           key="description"
@@ -92,6 +90,12 @@ export default function CustomSoftware(props) {
           designs from scratch - let us optomize your business, solving 
           problems instead of creating new ones."
         />
+        <meta
+          property="og:title"
+          content="Bringing West Coast Technology to the Midwest | Cutom Software Development"
+          key="og:title"
+        />
+        <meta property="og:url" content="arc.com/customsoftware" />
       </Head>
       <Grid
         item

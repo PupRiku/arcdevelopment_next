@@ -48,6 +48,12 @@ export default function CustomSoftware(props) {
           content="Visionary insights, coupled with cutting-edge technology, is 
           a recipe for revolution. Get a free online estimate instantly!"
         />
+        <meta
+          property="og:title"
+          content="Bringing West Coast Technology to the Midwest | The Revolution"
+          key="og:title"
+        />
+        <meta property="og:url" content="arc.com/revolution" />
       </Head>
       <Grid item className={classes.rowContainer} style={{ marginTop: "2em" }}>
         <Typography

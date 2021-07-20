@@ -57,6 +57,12 @@ export default function Services(props) {
           services with sleek custom designs - get a free online estimate 
           instantly!"
         />
+        <meta
+          property="og:title"
+          content="Bringing West Coast Technology to the Midwest | Services"
+          key="og:title"
+        />
+        <meta property="og:url" content="arc.com/services" />
       </Head>
       <Grid
         item
