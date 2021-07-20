@@ -1,31 +1,31 @@
-import React from 'react';
-import Head from 'next/head';
-import Lottie from 'react-lottie';
-import Link from '../src/Link';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Hidden from '@material-ui/core/Hidden';
+import React from "react";
+import Head from "next/head";
+import Lottie from "react-lottie";
+import Link from "../src/Link";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import IconButton from "@material-ui/core/IconButton";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Hidden from "@material-ui/core/Hidden";
 
-import integrationAnimation from '../src/animations/integrationAnimation/data.json';
+import integrationAnimation from "../src/animations/integrationAnimation/data.json";
 
-import CallToAction from '../src/ui/CallToAction';
+import CallToAction from "../src/ui/CallToAction";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   heading: {
-    maxWidth: '40em',
+    maxWidth: "40em",
   },
   arrowContainer: {
-    marginTop: '0.5em',
+    marginTop: "0.5em",
   },
   rowContainer: {
-    paddingLeft: '5em',
-    paddingRight: '5em',
-    [theme.breakpoints.down('sm')]: {
-      paddingLeft: '1.5em',
-      paddingRight: '1.5em',
+    paddingLeft: "5em",
+    paddingRight: "5em",
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: "1.5em",
+      paddingRight: "1.5em",
     },
   },
 }));
@@ -33,16 +33,16 @@ const useStyles = makeStyles((theme) => ({
 export default function MobileApps(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
-  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
-  const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
   const defaultOptions = {
     loop: true,
     autoplay: true,
     animationData: integrationAnimation,
     rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
+      preserveAspectRatio: "xMidYMid slice",
     },
   };
 
@@ -52,23 +52,30 @@ export default function MobileApps(props) {
         <title key="title">
           iOS/Android App Design and Development | Arc Development
         </title>
+        <meta
+          name="description"
+          key="description"
+          content="Mobile Apps Made Easy | Our cutting-edge mobile app 
+          development process lets us build beautifully designed, carefully 
+          crafted apps for both iOS and Android."
+        />
       </Head>
       <Grid
         item
         container
         direction="row"
-        justify={matchesMD ? 'center' : undefined}
+        justify={matchesMD ? "center" : undefined}
         className={classes.rowContainer}
-        style={{ marginTop: matchesXS ? '1em' : '2em' }}
+        style={{ marginTop: matchesXS ? "1em" : "2em" }}
       >
         <Hidden mdDown>
           <Grid
             item
             className={classes.arrowContainer}
-            style={{ marginRight: '1em', marginLeft: '-3.5em' }}
+            style={{ marginRight: "1em", marginLeft: "-3.5em" }}
           >
             <IconButton
-              style={{ backgroundColor: 'transparent' }}
+              style={{ backgroundColor: "transparent" }}
               component={Link}
               href="/customsoftware"
               onClick={() => props.setSelectedIndex(1)}
@@ -82,20 +89,20 @@ export default function MobileApps(props) {
         </Hidden>
         <Grid item container direction="column" className={classes.heading}>
           <Grid item>
-            <Typography align={matchesMD ? 'center' : undefined} variant="h2">
+            <Typography align={matchesMD ? "center" : undefined} variant="h2">
               iOS/Android App Development
             </Typography>
           </Grid>
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
               paragraph
             >
               Mobile apps allow you to take your tools on the go.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
               paragraph
             >
@@ -106,7 +113,7 @@ export default function MobileApps(props) {
               the camera, GPS, push notifications, and more.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
               paragraph
             >
@@ -117,7 +124,7 @@ export default function MobileApps(props) {
         <Hidden mdDown>
           <Grid item className={classes.arrowContainer}>
             <IconButton
-              style={{ backgroundColor: 'transparent' }}
+              style={{ backgroundColor: "transparent" }}
               component={Link}
               href="/websites"
               onClick={() => props.setSelectedIndex(3)}
@@ -133,14 +140,14 @@ export default function MobileApps(props) {
       <Grid
         item
         container
-        direction={matchesSM ? 'column' : 'row'}
-        style={{ marginTop: '15em', marginBottom: '15em' }}
+        direction={matchesSM ? "column" : "row"}
+        style={{ marginTop: "15em", marginBottom: "15em" }}
         className={classes.rowContainer}
       >
         <Grid item container direction="column" md>
           <Grid item>
             <Typography
-              align={matchesSM ? 'center' : undefined}
+              align={matchesSM ? "center" : undefined}
               variant="h4"
               gutterBottom
             >
@@ -149,7 +156,7 @@ export default function MobileApps(props) {
           </Grid>
           <Grid item>
             <Typography
-              align={matchesSM ? 'center' : undefined}
+              align={matchesSM ? "center" : undefined}
               variant="body1"
               paragraph
             >
@@ -160,7 +167,7 @@ export default function MobileApps(props) {
           </Grid>
           <Grid item>
             <Typography
-              align={matchesSM ? 'center' : undefined}
+              align={matchesSM ? "center" : undefined}
               variant="body1"
               paragraph
             >
@@ -170,12 +177,12 @@ export default function MobileApps(props) {
           </Grid>
         </Grid>
         <Grid item md>
-          <Lottie options={defaultOptions} style={{ maxWidth: '20em' }} />
+          <Lottie options={defaultOptions} style={{ maxWidth: "20em" }} />
         </Grid>
         <Grid item container direction="column" md>
           <Grid item>
             <Typography
-              align={matchesSM ? 'center' : 'right'}
+              align={matchesSM ? "center" : "right"}
               variant="h4"
               gutterBottom
             >
@@ -184,7 +191,7 @@ export default function MobileApps(props) {
           </Grid>
           <Grid item>
             <Typography
-              align={matchesSM ? 'center' : 'right'}
+              align={matchesSM ? "center" : "right"}
               variant="body1"
               paragraph
             >
@@ -194,7 +201,7 @@ export default function MobileApps(props) {
           </Grid>
           <Grid item>
             <Typography
-              align={matchesSM ? 'center' : 'right'}
+              align={matchesSM ? "center" : "right"}
               variant="body1"
               paragraph
             >
@@ -207,9 +214,9 @@ export default function MobileApps(props) {
       <Grid
         item
         container
-        direction={matchesMD ? 'column' : 'row'}
+        direction={matchesMD ? "column" : "row"}
         className={classes.rowContainer}
-        style={{ marginBottom: '15em' }}
+        style={{ marginBottom: "15em" }}
       >
         <Grid item container direction="column" md alignItems="center">
           <Grid item>
@@ -228,8 +235,8 @@ export default function MobileApps(props) {
           md
           alignItems="center"
           style={{
-            marginTop: matchesMD ? '10em' : 0,
-            marginBottom: matchesMD ? '10em' : 0,
+            marginTop: matchesMD ? "10em" : 0,
+            marginBottom: matchesMD ? "10em" : 0,
           }}
         >
           <Grid item>
@@ -241,7 +248,7 @@ export default function MobileApps(props) {
             <img
               src="/assets/extendAccess.svg"
               alt="tear-one-off sign"
-              style={{ maxWidth: matchesXS ? '20em' : '28em' }}
+              style={{ maxWidth: matchesXS ? "20em" : "28em" }}
             />
           </Grid>
         </Grid>

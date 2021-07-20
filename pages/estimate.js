@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
-import Head from 'next/head';
-import axios from 'axios';
-import { cloneDeep } from 'lodash';
-import Lottie from 'react-lottie';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import TextField from '@material-ui/core/TextField';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Hidden from '@material-ui/core/Hidden';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import Snackbar from '@material-ui/core/Snackbar';
+import React, { useState } from "react";
+import Head from "next/head";
+import axios from "axios";
+import { cloneDeep } from "lodash";
+import Lottie from "react-lottie";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import TextField from "@material-ui/core/TextField";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Hidden from "@material-ui/core/Hidden";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Snackbar from "@material-ui/core/Snackbar";
 
-import estimateAnimation from '../src/animations/estimateAnimation/data.json';
+import estimateAnimation from "../src/animations/estimateAnimation/data.json";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   icon: {
-    width: '12em',
-    height: '10em',
+    width: "12em",
+    height: "10em",
   },
   estimateButton: {
     ...theme.typography.estimate,
@@ -29,22 +29,22 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.common.orange,
     height: 50,
     width: 225,
-    fontSize: '1.25rem',
-    marginTop: '5em',
-    '&:hover': {
+    fontSize: "1.25rem",
+    marginTop: "5em",
+    "&:hover": {
       backgroundColor: theme.palette.secondary.light,
     },
   },
   message: {
     border: `2px solid ${theme.palette.common.blue}`,
-    marginTop: '3em',
-    marginBottom: '2em',
+    marginTop: "3em",
+    marginBottom: "2em",
     borderRadius: 5,
   },
   specialText: {
-    fontFamily: 'Raleway',
+    fontFamily: "Raleway",
     fontWeight: 700,
-    fontSize: '1.5rem',
+    fontSize: "1.5rem",
     color: theme.palette.common.orange,
   },
 }));
@@ -52,34 +52,34 @@ const useStyles = makeStyles((theme) => ({
 const defaultQuestions = [
   {
     id: 1,
-    title: 'Which service are you interested in?',
+    title: "Which service are you interested in?",
     subtitle: null,
     active: true,
     options: [
       {
         id: 1,
-        title: 'Custom Software Development',
+        title: "Custom Software Development",
         subtitle: null,
-        icon: '/assets/software.svg',
-        iconAlt: 'three floating screens',
+        icon: "/assets/software.svg",
+        iconAlt: "three floating screens",
         selected: false,
         cost: 0,
       },
       {
         id: 2,
-        title: 'iOS/Android App Development',
+        title: "iOS/Android App Development",
         subtitle: null,
-        icon: '/assets/mobile.svg',
-        iconAlt: 'phones and tablet outline',
+        icon: "/assets/mobile.svg",
+        iconAlt: "phones and tablet outline",
         selected: false,
         cost: 0,
       },
       {
         id: 3,
-        title: 'Website Development',
+        title: "Website Development",
         subtitle: null,
-        icon: '/assets/website.svg',
-        iconAlt: 'computer outline',
+        icon: "/assets/website.svg",
+        iconAlt: "computer outline",
         selected: false,
         cost: 0,
       },
@@ -91,33 +91,33 @@ const softwareQuestions = [
   { ...defaultQuestions[0], active: false },
   {
     id: 2,
-    title: 'Which platforms do you need supported?',
-    subtitle: 'Select all that apply.',
+    title: "Which platforms do you need supported?",
+    subtitle: "Select all that apply.",
     options: [
       {
         id: 1,
-        title: 'Web Application',
+        title: "Web Application",
         subtitle: null,
-        icon: '/assets/website.svg',
-        iconAlt: 'computer outline',
+        icon: "/assets/website.svg",
+        iconAlt: "computer outline",
         selected: false,
         cost: 100,
       },
       {
         id: 2,
-        title: 'iOS Application',
+        title: "iOS Application",
         subtitle: null,
-        icon: '/assets/iphone.svg',
-        iconAlt: 'outline of iphone',
+        icon: "/assets/iphone.svg",
+        iconAlt: "outline of iphone",
         selected: false,
         cost: 100,
       },
       {
         id: 3,
-        title: 'Android Application',
+        title: "Android Application",
         subtitle: null,
-        icon: '/assets/android.svg',
-        iconAlt: 'outlines of android phone',
+        icon: "/assets/android.svg",
+        iconAlt: "outlines of android phone",
         selected: false,
         cost: 100,
       },
@@ -126,33 +126,33 @@ const softwareQuestions = [
   },
   {
     id: 3,
-    title: 'Which features do you expect to use?',
-    subtitle: 'Select all that apply.',
+    title: "Which features do you expect to use?",
+    subtitle: "Select all that apply.",
     options: [
       {
         id: 1,
-        title: 'Photo/Video',
+        title: "Photo/Video",
         subtitle: null,
-        icon: '/assets/camera.svg',
-        iconAlt: 'camera outline',
+        icon: "/assets/camera.svg",
+        iconAlt: "camera outline",
         selected: false,
         cost: 25,
       },
       {
         id: 2,
-        title: 'GPS',
+        title: "GPS",
         subtitle: null,
-        icon: '/assets/gps.svg',
-        iconAlt: 'gps pin',
+        icon: "/assets/gps.svg",
+        iconAlt: "gps pin",
         selected: false,
         cost: 25,
       },
       {
         id: 3,
-        title: 'File Transfer',
+        title: "File Transfer",
         subtitle: null,
-        icon: '/assets/upload.svg',
-        iconAlt: 'outline of cloud with arrow pointing up',
+        icon: "/assets/upload.svg",
+        iconAlt: "outline of cloud with arrow pointing up",
         selected: false,
         cost: 25,
       },
@@ -161,33 +161,33 @@ const softwareQuestions = [
   },
   {
     id: 4,
-    title: 'Which features do you expect to use?',
-    subtitle: 'Select all that apply.',
+    title: "Which features do you expect to use?",
+    subtitle: "Select all that apply.",
     options: [
       {
         id: 1,
-        title: 'Users/Authentication',
+        title: "Users/Authentication",
         subtitle: null,
-        icon: '/assets/users.svg',
-        iconAlt: 'outline of a person with a plus sign',
+        icon: "/assets/users.svg",
+        iconAlt: "outline of a person with a plus sign",
         selected: false,
         cost: 25,
       },
       {
         id: 2,
-        title: 'Biometrics',
+        title: "Biometrics",
         subtitle: null,
-        icon: '/assets/biometrics.svg',
-        iconAlt: 'fingerprint',
+        icon: "/assets/biometrics.svg",
+        iconAlt: "fingerprint",
         selected: false,
         cost: 25,
       },
       {
         id: 3,
-        title: 'Push Notifications',
+        title: "Push Notifications",
         subtitle: null,
-        icon: '/assets/bell.svg',
-        iconAlt: 'outline of a bell',
+        icon: "/assets/bell.svg",
+        iconAlt: "outline of a bell",
         selected: false,
         cost: 25,
       },
@@ -196,33 +196,33 @@ const softwareQuestions = [
   },
   {
     id: 5,
-    title: 'What type of custom features do you expect to need?',
-    subtitle: 'Select one.',
+    title: "What type of custom features do you expect to need?",
+    subtitle: "Select one.",
     options: [
       {
         id: 1,
-        title: 'Low Complexity',
-        subtitle: '(Informational)',
-        icon: '/assets/info.svg',
+        title: "Low Complexity",
+        subtitle: "(Informational)",
+        icon: "/assets/info.svg",
         iconAlt: "'i' inside a circle",
         selected: false,
         cost: 25,
       },
       {
         id: 2,
-        title: 'Medium Complexity',
-        subtitle: '(Interactive, Customizable, Realtime)',
-        icon: '/assets/customized.svg',
-        iconAlt: 'two toggle switches',
+        title: "Medium Complexity",
+        subtitle: "(Interactive, Customizable, Realtime)",
+        icon: "/assets/customized.svg",
+        iconAlt: "two toggle switches",
         selected: false,
         cost: 50,
       },
       {
         id: 3,
-        title: 'High Complexity',
-        subtitle: '(Data Modeling and Computation)',
-        icon: '/assets/data.svg',
-        iconAlt: 'outline of line graph',
+        title: "High Complexity",
+        subtitle: "(Data Modeling and Computation)",
+        icon: "/assets/data.svg",
+        iconAlt: "outline of line graph",
         selected: false,
         cost: 100,
       },
@@ -231,33 +231,33 @@ const softwareQuestions = [
   },
   {
     id: 6,
-    title: 'How many users do you expect?',
-    subtitle: 'Select one.',
+    title: "How many users do you expect?",
+    subtitle: "Select one.",
     options: [
       {
         id: 1,
-        title: '0-10',
+        title: "0-10",
         subtitle: null,
-        icon: '/assets/person.svg',
-        iconAlt: 'person outline',
+        icon: "/assets/person.svg",
+        iconAlt: "person outline",
         selected: false,
         cost: 1,
       },
       {
         id: 2,
-        title: '10-100',
+        title: "10-100",
         subtitle: null,
-        icon: '/assets/persons.svg',
-        iconAlt: 'outline of two people',
+        icon: "/assets/persons.svg",
+        iconAlt: "outline of two people",
         selected: false,
         cost: 1.25,
       },
       {
         id: 3,
-        title: '100+',
+        title: "100+",
         subtitle: null,
-        icon: '../assets/people.svg',
-        iconAlt: 'outline of three people',
+        icon: "../assets/people.svg",
+        iconAlt: "outline of three people",
         selected: false,
         cost: 1.5,
       },
@@ -270,33 +270,33 @@ const websiteQuestions = [
   { ...defaultQuestions[0], active: false },
   {
     id: 2,
-    title: 'Which type of website are you wanting?',
-    subtitle: 'Select one.',
+    title: "Which type of website are you wanting?",
+    subtitle: "Select one.",
     options: [
       {
         id: 1,
-        title: 'Basic',
-        subtitle: '(Informational)',
-        icon: '/assets/info.svg',
-        iconAlt: 'person outline',
+        title: "Basic",
+        subtitle: "(Informational)",
+        icon: "/assets/info.svg",
+        iconAlt: "person outline",
         selected: false,
         cost: 100,
       },
       {
         id: 2,
-        title: 'Interactive',
+        title: "Interactive",
         subtitle: "(Users, API's, Messaging)",
-        icon: '/assets/customized.svg',
-        iconAlt: 'outline of two people',
+        icon: "/assets/customized.svg",
+        iconAlt: "outline of two people",
         selected: false,
         cost: 200,
       },
       {
         id: 3,
-        title: 'E-Commerce',
-        subtitle: '(Sales)',
-        icon: '/assets/globe.svg',
-        iconAlt: 'outline of three people',
+        title: "E-Commerce",
+        subtitle: "(Sales)",
+        icon: "/assets/globe.svg",
+        iconAlt: "outline of three people",
         selected: false,
         cost: 250,
       },
@@ -308,37 +308,37 @@ const websiteQuestions = [
 export default function Estimate() {
   const classes = useStyles();
   const theme = useTheme();
-  const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
-  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [questions, setQuestions] = useState(defaultQuestions);
   const [dialogOpen, setDialogOpen] = useState(false);
 
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
 
-  const [email, setEmail] = useState('');
-  const [emailHelper, setEmailHelper] = useState('');
+  const [email, setEmail] = useState("");
+  const [emailHelper, setEmailHelper] = useState("");
 
-  const [phone, setPhone] = useState('');
-  const [phoneHelper, setPhoneHelper] = useState('');
+  const [phone, setPhone] = useState("");
+  const [phoneHelper, setPhoneHelper] = useState("");
 
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   const [total, setTotal] = useState(0);
 
   const [service, setService] = useState([]);
   const [platforms, setPlatforms] = useState([]);
   const [features, setFeatures] = useState([]);
-  const [customFeatures, setCustomFeatures] = useState('');
-  const [category, setCategory] = useState('');
-  const [users, setUsers] = useState('');
+  const [customFeatures, setCustomFeatures] = useState("");
+  const [category, setCategory] = useState("");
+  const [users, setUsers] = useState("");
 
   const [loading, setLoading] = useState(false);
 
   const [alert, setAlert] = useState({
     open: false,
-    message: '',
-    backgroundColor: '',
+    message: "",
+    backgroundColor: "",
   });
 
   const defaultOptions = {
@@ -346,13 +346,13 @@ export default function Estimate() {
     autoplay: true,
     animationData: estimateAnimation,
     rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
+      preserveAspectRatio: "xMidYMid slice",
     },
   };
 
   const nextQuestion = () => {
     const newQuestions = cloneDeep(questions);
-    const currentlyActive = newQuestions.filter((question) => question.active);
+    const currentlyActive = newQuestions.filter(question => question.active);
     const activeIndex = currentlyActive[0].id - 1;
     const nextIndex = activeIndex + 1;
 
@@ -364,7 +364,7 @@ export default function Estimate() {
 
   const previousQuestion = () => {
     const newQuestions = cloneDeep(questions);
-    const currentlyActive = newQuestions.filter((question) => question.active);
+    const currentlyActive = newQuestions.filter(question => question.active);
     const activeIndex = currentlyActive[0].id - 1;
     const prevIndex = activeIndex - 1;
 
@@ -375,7 +375,7 @@ export default function Estimate() {
   };
 
   const navigationPreviousDisabled = () => {
-    const currentlyActive = questions.filter((question) => question.active);
+    const currentlyActive = questions.filter(question => question.active);
 
     if (currentlyActive[0].id === 1) {
       return true;
@@ -385,7 +385,7 @@ export default function Estimate() {
   };
 
   const navigationNextDisabled = () => {
-    const currentlyActive = questions.filter((question) => question.active);
+    const currentlyActive = questions.filter(question => question.active);
 
     if (currentlyActive[0].id === questions[questions.length - 1].id) {
       return true;
@@ -394,18 +394,18 @@ export default function Estimate() {
     }
   };
 
-  const handleSelect = (id) => {
+  const handleSelect = id => {
     const newQuestions = cloneDeep(questions);
-    const currentlyActive = newQuestions.filter((question) => question.active);
+    const currentlyActive = newQuestions.filter(question => question.active);
     const activeIndex = currentlyActive[0].id - 1;
 
     const newSelected = newQuestions[activeIndex].options[id - 1];
     const previousSelected = currentlyActive[0].options.filter(
-      (option) => option.selected
+      option => option.selected
     );
 
     switch (currentlyActive[0].subtitle) {
-      case 'Select one.':
+      case "Select one.":
         if (previousSelected[0]) {
           previousSelected[0].selected = !previousSelected[0].selected;
         }
@@ -417,32 +417,32 @@ export default function Estimate() {
     }
 
     switch (newSelected.title) {
-      case 'Custom Software Development':
+      case "Custom Software Development":
         setQuestions(softwareQuestions);
         setService(newSelected.title);
         setPlatforms([]);
         setFeatures([]);
-        setCustomFeatures('');
-        setCategory('');
-        setUsers('');
+        setCustomFeatures("");
+        setCategory("");
+        setUsers("");
         break;
-      case 'iOS/Android App Development':
+      case "iOS/Android App Development":
         setQuestions(softwareQuestions);
         setService(newSelected.title);
         setPlatforms([]);
         setFeatures([]);
-        setCustomFeatures('');
-        setCategory('');
-        setUsers('');
+        setCustomFeatures("");
+        setCategory("");
+        setUsers("");
         break;
-      case 'Website Development':
+      case "Website Development":
         setQuestions(websiteQuestions);
         setService(newSelected.title);
         setPlatforms([]);
         setFeatures([]);
-        setCustomFeatures('');
-        setCategory('');
-        setUsers('');
+        setCustomFeatures("");
+        setCategory("");
+        setUsers("");
         break;
       default:
         setQuestions(newQuestions);
@@ -450,32 +450,32 @@ export default function Estimate() {
     }
   };
 
-  const onChange = (event) => {
+  const onChange = event => {
     let valid;
 
     switch (event.target.id) {
-      case 'email':
+      case "email":
         setEmail(event.target.value);
         valid = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(
           event.target.value
         );
 
         if (!valid) {
-          setEmailHelper('Invalid email');
+          setEmailHelper("Invalid email");
         } else {
-          setEmailHelper('');
+          setEmailHelper("");
         }
         break;
-      case 'phone':
+      case "phone":
         setPhone(event.target.value);
         valid = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(
           event.target.value
         );
 
         if (!valid) {
-          setPhoneHelper('Invalid phone');
+          setPhoneHelper("Invalid phone");
         } else {
-          setPhoneHelper('');
+          setPhoneHelper("");
         }
         break;
       default:
@@ -487,18 +487,16 @@ export default function Estimate() {
     let cost = 0;
 
     const selections = questions
-      .map((question) => question.options.filter((option) => option.selected))
-      .filter((question) => question.length > 0);
+      .map(question => question.options.filter(option => option.selected))
+      .filter(question => question.length > 0);
 
-    selections.map((options) => options.map((option) => (cost += option.cost)));
+    selections.map(options => options.map(option => (cost += option.cost)));
 
     if (questions.length > 2) {
       const userCost = questions
-        .filter(
-          (question) => question.title === 'How many users do you expect?'
-        )
-        .map((question) =>
-          question.options.filter((option) => option.selected)
+        .filter(question => question.title === "How many users do you expect?")
+        .map(question =>
+          question.options.filter(option => option.selected)
         )[0][0];
       setUsers(userCost.title);
       cost -= userCost.cost;
@@ -514,13 +512,11 @@ export default function Estimate() {
     if (questions.length > 2) {
       questions
         .filter(
-          (question) =>
-            question.title === 'Which platforms do you need supported?'
+          question =>
+            question.title === "Which platforms do you need supported?"
         )
-        .map((question) =>
-          question.options.filter((option) => option.selected)
-        )[0]
-        .map((option) => newPlatforms.push(option.title));
+        .map(question => question.options.filter(option => option.selected))[0]
+        .map(option => newPlatforms.push(option.title));
 
       setPlatforms(newPlatforms);
     }
@@ -532,13 +528,10 @@ export default function Estimate() {
     if (questions.length > 2) {
       questions
         .filter(
-          (question) =>
-            question.title === 'Which features do you expect to use?'
+          question => question.title === "Which features do you expect to use?"
         )
-        .map((question) => question.options.filter((option) => option.selected))
-        .map((option) =>
-          option.map((feature) => newFeatures.push(feature.title))
-        );
+        .map(question => question.options.filter(option => option.selected))
+        .map(option => option.map(feature => newFeatures.push(feature.title)));
       setFeatures(newFeatures);
     }
   };
@@ -547,12 +540,12 @@ export default function Estimate() {
     if (questions.length > 2) {
       const newCustomFeatures = questions
         .filter(
-          (question) =>
+          question =>
             question.title ===
-            'What type of custom features do you expect to need?'
+            "What type of custom features do you expect to need?"
         )
-        .map((question) =>
-          question.options.filter((option) => option.selected)
+        .map(question =>
+          question.options.filter(option => option.selected)
         )[0][0].title;
 
       setCustomFeatures(newCustomFeatures);
@@ -563,10 +556,10 @@ export default function Estimate() {
     if (questions.length === 2) {
       const newCategory = questions
         .filter(
-          (question) =>
-            question.title === 'Which type of website are you wanting?'
+          question =>
+            question.title === "Which type of website are you wanting?"
         )[0]
-        .options.filter((option) => option.selected)[0].title;
+        .options.filter(option => option.selected)[0].title;
 
       setCategory(newCategory);
     }
@@ -577,7 +570,7 @@ export default function Estimate() {
 
     axios
       .get(
-        'https://us-central1-material-ui-course-8e786.cloudfunctions.net/sendMail',
+        "https://us-central1-material-ui-course-8e786.cloudfunctions.net/sendMail",
         {
           params: {
             name: name,
@@ -594,22 +587,22 @@ export default function Estimate() {
           },
         }
       )
-      .then((res) => {
+      .then(res => {
         setLoading(false);
         setAlert({
           open: true,
-          message: 'Estimate placed successfully!',
-          backgroundColor: '#4bb543',
+          message: "Estimate placed successfully!",
+          backgroundColor: "#4bb543",
         });
         setDialogOpen(false);
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err);
         setLoading(false);
         setAlert({
           open: true,
-          message: 'Something went wrong, please try again!',
-          backgroundColor: '#FF3232',
+          message: "Something went wrong, please try again!",
+          backgroundColor: "#FF3232",
         });
       });
   };
@@ -618,8 +611,8 @@ export default function Estimate() {
     let disabled = true;
 
     const emptySelections = questions
-      .map((question) => question.options.filter((option) => option.selected))
-      .filter((question) => question.length === 0);
+      .map(question => question.options.filter(option => option.selected))
+      .filter(question => question.length === 0);
 
     if (questions.length === 2) {
       if (emptySelections.length === 1) {
@@ -629,9 +622,8 @@ export default function Estimate() {
       disabled = true;
     } else if (
       emptySelections.length < 3 &&
-      questions[questions.length - 1].options.filter(
-        (option) => option.selected
-      ).length > 0
+      questions[questions.length - 1].options.filter(option => option.selected)
+        .length > 0
     ) {
       disabled = false;
     }
@@ -645,7 +637,7 @@ export default function Estimate() {
         item
         container
         alignItems="center"
-        style={{ marginBottom: '1.25em' }}
+        style={{ marginBottom: "1.25em" }}
       >
         <Grid item xs={2}>
           <img src="/assets/check.svg" alt="checkmark" />
@@ -656,12 +648,12 @@ export default function Estimate() {
             {platforms.length > 0
               ? ` for ${
                   //if only web application is selected...
-                  platforms.indexOf('Web Application') > -1 &&
+                  platforms.indexOf("Web Application") > -1 &&
                   platforms.length === 1
                     ? //then finish sentence here
-                      'a Web Application.'
+                      "a Web Application."
                     : //otherwise, if web application and another platform is selected...
-                    platforms.indexOf('Web Application') > -1 &&
+                    platforms.indexOf("Web Application") > -1 &&
                       platforms.length === 2
                     ? //then finish the sentence here
                       `a Web Application and an ${platforms[1]}.`
@@ -672,11 +664,11 @@ export default function Estimate() {
                     : //otherwise, if other two options are selected...
                     platforms.length === 2
                     ? //then finish the sentence here
-                      'an iOS Application and an Android Application.'
+                      "an iOS Application and an Android Application."
                     : //otherwise if all three are selected...
                     platforms.length === 3
                     ? //then finish the sentence here
-                      'a Web Application, an iOS Application, and an Android Application.'
+                      "a Web Application, an iOS Application, and an Android Application."
                     : null
                 }`
               : null}
@@ -687,14 +679,14 @@ export default function Estimate() {
         item
         container
         alignItems="center"
-        style={{ marginBottom: '1.25em' }}
+        style={{ marginBottom: "1.25em" }}
       >
         <Grid item xs={2}>
           <img src="/assets/check.svg" alt="checkmark" />
         </Grid>
         <Grid item xs={10}>
           <Typography variant="body1">
-            {'with '}
+            {"with "}
             {/* if we have features... */}
             {features.length > 0
               ? //...and there's only 1...
@@ -736,16 +728,16 @@ export default function Estimate() {
   );
 
   const websiteSelection = (
-    <Grid container direction="column" style={{ marginTop: '14em' }}>
+    <Grid container direction="column" style={{ marginTop: "14em" }}>
       <Grid item container alignItems="center">
         <Grid item xs={2}>
           <img src="/assets/check.svg" alt="checkmark" />
         </Grid>
         <Grid item xs={10}>
           <Typography variant="body1">
-            You want{' '}
-            {category === 'Basic'
-              ? 'a Basic Website.'
+            You want{" "}
+            {category === "Basic"
+              ? "a Basic Website."
               : `an ${category} Website.`}
           </Typography>
         </Grid>
@@ -756,29 +748,38 @@ export default function Estimate() {
   return (
     <Grid container direction="row">
       <Head>
-        <title key="title">Free Custom Software Estimate | Arc Development</title>
+        <title key="title">
+          Free Custom Software Estimate | Arc Development
+        </title>
+        <meta
+          name="description"
+          key="description"
+          content="Use our free online estimate calculator to instantly check 
+          the cost of your custom software, mobile app, or website design and 
+          development project!"
+        />
       </Head>
       <Grid
         item
         container
         direction="column"
         lg
-        alignItems={matchesMD ? 'center' : undefined}
+        alignItems={matchesMD ? "center" : undefined}
       >
         <Grid
           item
-          style={{ marginTop: '2em', marginLeft: matchesMD ? 0 : '5em' }}
+          style={{ marginTop: "2em", marginLeft: matchesMD ? 0 : "5em" }}
         >
-          <Typography variant="h2" align={matchesMD ? 'center' : undefined}>
+          <Typography variant="h2" align={matchesMD ? "center" : undefined}>
             Estimate
           </Typography>
         </Grid>
         <Grid
           item
           style={{
-            marginRight: matchesMD ? 0 : '10em',
-            maxWidth: '50em',
-            marginTop: '7.5em',
+            marginRight: matchesMD ? 0 : "10em",
+            maxWidth: "50em",
+            marginTop: "7.5em",
           }}
         >
           <Lottie options={defaultOptions} height="100%" width="100%" />
@@ -790,10 +791,10 @@ export default function Estimate() {
         direction="column"
         alignItems="center"
         lg
-        style={{ marginRight: matchesMD ? 0 : '2em', marginBottom: '25em' }}
+        style={{ marginRight: matchesMD ? 0 : "2em", marginBottom: "25em" }}
       >
         {questions
-          .filter((question) => question.active)
+          .filter(question => question.active)
           .map((question, index) => (
             <React.Fragment key={index}>
               <Grid item>
@@ -802,11 +803,11 @@ export default function Estimate() {
                   align="center"
                   style={{
                     fontWeight: 500,
-                    fontSize: '2.35rem',
-                    marginTop: '5em',
+                    fontSize: "2.35rem",
+                    marginTop: "5em",
                     lineHeight: 1.25,
-                    marginLeft: matchesSM ? '1em' : 0,
-                    marginRight: matchesSM ? '1em' : 0,
+                    marginLeft: matchesSM ? "1em" : 0,
+                    marginRight: matchesSM ? "1em" : 0,
                   }}
                 >
                   {question.title}
@@ -814,7 +815,7 @@ export default function Estimate() {
                 <Typography
                   variant="body1"
                   align="center"
-                  style={{ marginBottom: '2.5em' }}
+                  style={{ marginBottom: "2.5em" }}
                   gutterBottom
                 >
                   {question.subtitle}
@@ -831,20 +832,20 @@ export default function Estimate() {
                     component={Button}
                     onClick={() => handleSelect(option.id)}
                     style={{
-                      display: 'grid',
-                      textTransform: 'none',
+                      display: "grid",
+                      textTransform: "none",
                       borderRadius: 0,
-                      marginBottom: matchesSM ? '1.5em' : 0,
+                      marginBottom: matchesSM ? "1.5em" : 0,
                       backgroundColor: option.selected
                         ? theme.palette.common.orange
                         : null,
                     }}
                   >
-                    <Grid item style={{ maxWidth: '14em' }}>
+                    <Grid item style={{ maxWidth: "14em" }}>
                       <Typography
                         variant="h6"
                         align="center"
-                        style={{ marginBottom: '1em' }}
+                        style={{ marginBottom: "1em" }}
                       >
                         {option.title}
                       </Typography>
@@ -868,7 +869,7 @@ export default function Estimate() {
           item
           container
           justify="space-between"
-          style={{ width: '18em', marginTop: '3em' }}
+          style={{ width: "18em", marginTop: "3em" }}
         >
           <Grid item>
             <IconButton
@@ -878,8 +879,8 @@ export default function Estimate() {
               <img
                 src={
                   navigationPreviousDisabled()
-                    ? '/assets/backArrowDisabled.svg'
-                    : '/assets/backArrow.svg'
+                    ? "/assets/backArrowDisabled.svg"
+                    : "/assets/backArrow.svg"
                 }
                 alt="Previous question"
               />
@@ -893,8 +894,8 @@ export default function Estimate() {
               <img
                 src={
                   navigationNextDisabled()
-                    ? '/assets/forwardArrowDisabled.svg'
-                    : '/assets/forwardArrow.svg'
+                    ? "/assets/forwardArrowDisabled.svg"
+                    : "/assets/forwardArrow.svg"
                 }
                 alt="Next question"
               />
@@ -928,7 +929,7 @@ export default function Estimate() {
         fullScreen={matchesSM}
       >
         <Grid container justify="center">
-          <Grid item style={{ marginTop: '1em', marginBottom: '1em' }}>
+          <Grid item style={{ marginTop: "1em", marginBottom: "1em" }}>
             <Typography variant="h2" align="center">
               Estimate
             </Typography>
@@ -938,26 +939,26 @@ export default function Estimate() {
           <Grid
             container
             justify="space-around"
-            direction={matchesSM ? 'column' : 'row'}
-            alignItems={matchesSM ? 'center' : undefined}
+            direction={matchesSM ? "column" : "row"}
+            alignItems={matchesSM ? "center" : undefined}
           >
             <Grid
               item
               container
               direction="column"
               md={7}
-              style={{ maxWidth: '20em' }}
+              style={{ maxWidth: "20em" }}
             >
-              <Grid item style={{ marginBottom: '0.5em' }}>
+              <Grid item style={{ marginBottom: "0.5em" }}>
                 <TextField
                   label="Name"
                   id="name"
                   fullWidth
                   value={name}
-                  onChange={(event) => setName(event.target.value)}
+                  onChange={event => setName(event.target.value)}
                 />
               </Grid>
-              <Grid item style={{ marginBottom: '0.5em' }}>
+              <Grid item style={{ marginBottom: "0.5em" }}>
                 <TextField
                   label="Email"
                   error={emailHelper.length !== 0}
@@ -968,7 +969,7 @@ export default function Estimate() {
                   onChange={onChange}
                 />
               </Grid>
-              <Grid item style={{ marginBottom: '0.5em' }}>
+              <Grid item style={{ marginBottom: "0.5em" }}>
                 <TextField
                   label="Phone"
                   error={phoneHelper.length !== 0}
@@ -979,7 +980,7 @@ export default function Estimate() {
                   onChange={onChange}
                 />
               </Grid>
-              <Grid item style={{ maxWidth: '20em' }}>
+              <Grid item style={{ maxWidth: "20em" }}>
                 <TextField
                   InputProps={{ disableUnderline: true }}
                   id="message"
@@ -989,17 +990,17 @@ export default function Estimate() {
                   multiline
                   placeholder="Tell us more about your project."
                   rows={10}
-                  onChange={(event) => setMessage(event.target.value)}
+                  onChange={event => setMessage(event.target.value)}
                 />
               </Grid>
               <Grid item>
                 <Typography
                   variant="body1"
                   paragraph
-                  align={matchesSM ? 'center' : undefined}
+                  align={matchesSM ? "center" : undefined}
                   style={{ lineHeight: 1.25 }}
                 >
-                  We can create this custom digital solution for an estimated{' '}
+                  We can create this custom digital solution for an estimated{" "}
                   <span className={classes.specialText}>
                     ${total.toFixed(2)}
                   </span>
@@ -1007,7 +1008,7 @@ export default function Estimate() {
                 <Typography
                   variant="body1"
                   paragraph
-                  align={matchesSM ? 'center' : undefined}
+                  align={matchesSM ? "center" : undefined}
                 >
                   Fill out your name, number, and email, place your request, and
                   we’ll get back to you with details moving forward and a final
@@ -1019,9 +1020,9 @@ export default function Estimate() {
               item
               container
               direction="column"
-              alignItems={matchesSM ? 'center' : undefined}
+              alignItems={matchesSM ? "center" : undefined}
               md={5}
-              style={{ maxWidth: '30em' }}
+              style={{ maxWidth: "30em" }}
             >
               <Hidden smDown>
                 <Grid item>
@@ -1050,14 +1051,14 @@ export default function Estimate() {
                       <img
                         src="/assets/send.svg"
                         alt="paper airplane"
-                        style={{ marginLeft: '0.5em' }}
+                        style={{ marginLeft: "0.5em" }}
                       />
                     </React.Fragment>
                   )}
                 </Button>
               </Grid>
               <Hidden mdUp>
-                <Grid item style={{ marginBottom: matchesSM ? '5em' : 0 }}>
+                <Grid item style={{ marginBottom: matchesSM ? "5em" : 0 }}>
                   <Button
                     style={{ fontWeight: 300 }}
                     color="primary"
@@ -1075,7 +1076,7 @@ export default function Estimate() {
         open={alert.open}
         message={alert.message}
         ContentProps={{ style: { backgroundColor: alert.backgroundColor } }}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
         onClose={() => setAlert({ ...alert, open: false })}
         autoHideDuration={4000}
       />

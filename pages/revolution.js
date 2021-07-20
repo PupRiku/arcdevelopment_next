@@ -1,22 +1,22 @@
-import React from 'react';
-import Head from 'next/head';
-import Lottie from 'react-lottie';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import React from "react";
+import Head from "next/head";
+import Lottie from "react-lottie";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import technologyAnimation from '../src/animations/technologyAnimation/data.json';
+import technologyAnimation from "../src/animations/technologyAnimation/data.json";
 
-import CallToAction from '../src/ui/CallToAction';
+import CallToAction from "../src/ui/CallToAction";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   rowContainer: {
-    paddingLeft: '5em',
-    paddingRight: '5em',
-    [theme.breakpoints.down('sm')]: {
-      paddingLeft: '1.5em',
-      paddingRight: '1.5em',
+    paddingLeft: "5em",
+    paddingRight: "5em",
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: "1.5em",
+      paddingRight: "1.5em",
     },
   },
 }));
@@ -24,15 +24,15 @@ const useStyles = makeStyles((theme) => ({
 export default function CustomSoftware(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
-  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
 
   const defaultOptions = {
     loop: true,
     autoplay: true,
     animationData: technologyAnimation,
     rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
+      preserveAspectRatio: "xMidYMid slice",
     },
   };
 
@@ -42,12 +42,18 @@ export default function CustomSoftware(props) {
         <title key="title">
           The Revolution - Cutting-Edge Software | Arc Development
         </title>
+        <meta
+          name="description"
+          key="description"
+          content="Visionary insights, coupled with cutting-edge technology, is 
+          a recipe for revolution. Get a free online estimate instantly!"
+        />
       </Head>
-      <Grid item className={classes.rowContainer} style={{ marginTop: '2em' }}>
+      <Grid item className={classes.rowContainer} style={{ marginTop: "2em" }}>
         <Typography
-          align={matchesMD ? 'center' : undefined}
+          align={matchesMD ? "center" : undefined}
           variant="h2"
-          style={{ fontFamily: 'Pacifico' }}
+          style={{ fontFamily: "Pacifico" }}
         >
           The Revolution
         </Typography>
@@ -55,26 +61,26 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        direction={matchesMD ? 'column' : 'row'}
+        direction={matchesMD ? "column" : "row"}
         alignItems="center"
         className={classes.rowContainer}
-        style={{ marginTop: '5em' }}
+        style={{ marginTop: "5em" }}
       >
         <Grid item lg>
           <img
             src="/assets/vision.svg"
             alt="mountain through binoculars"
             style={{
-              maxWidth: matchesSM ? '300px' : '40em',
-              marginRight: matchesMD ? 0 : '5em',
-              marginBottom: matchesMD ? '5em' : 0,
+              maxWidth: matchesSM ? "300px" : "40em",
+              marginRight: matchesMD ? 0 : "5em",
+              marginBottom: matchesMD ? "5em" : 0,
             }}
           />
         </Grid>
-        <Grid item container direction="column" lg style={{ maxWidth: '40em' }}>
+        <Grid item container direction="column" lg style={{ maxWidth: "40em" }}>
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : 'right'}
+              align={matchesMD ? "center" : "right"}
               variant="h4"
               gutterBottom
             >
@@ -83,7 +89,7 @@ export default function CustomSoftware(props) {
           </Grid>
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : 'right'}
+              align={matchesMD ? "center" : "right"}
               variant="body1"
               paragraph
             >
@@ -93,7 +99,7 @@ export default function CustomSoftware(props) {
               the world.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : 'right'}
+              align={matchesMD ? "center" : "right"}
               variant="body1"
               paragraph
             >
@@ -103,7 +109,7 @@ export default function CustomSoftware(props) {
               is at the heart of everything we do.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : 'right'}
+              align={matchesMD ? "center" : "right"}
               variant="body1"
               paragraph
             >
@@ -113,7 +119,7 @@ export default function CustomSoftware(props) {
               chapter of technological expansion, exploration, and innovation.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : 'right'}
+              align={matchesMD ? "center" : "right"}
               variant="body1"
               paragraph
             >
@@ -122,7 +128,7 @@ export default function CustomSoftware(props) {
               in this new frontier.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : 'right'}
+              align={matchesMD ? "center" : "right"}
               variant="body1"
               paragraph
             >
@@ -137,15 +143,15 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        direction={matchesMD ? 'column' : 'row'}
+        direction={matchesMD ? "column" : "row"}
         alignItems="center"
         className={classes.rowContainer}
-        style={{ marginTop: '10em', marginBottom: '10em' }}
+        style={{ marginTop: "10em", marginBottom: "10em" }}
       >
-        <Grid item container direction="column" lg style={{ maxWidth: '40em' }}>
+        <Grid item container direction="column" lg style={{ maxWidth: "40em" }}>
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="h4"
               gutterBottom
             >
@@ -154,7 +160,7 @@ export default function CustomSoftware(props) {
           </Grid>
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
               paragraph
             >
@@ -163,7 +169,7 @@ export default function CustomSoftware(props) {
               practice of website development.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
               paragraph
             >
@@ -174,7 +180,7 @@ export default function CustomSoftware(props) {
               singular purpose.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
               paragraph
             >
@@ -182,14 +188,14 @@ export default function CustomSoftware(props) {
               system, React Native, for producing iOS and Android apps. Instead
               of having to master two completely separate development platforms,
               you can leverage the knowledge you already possessed from building
-              websites and reapply it directly! This was a{' '}
+              websites and reapply it directly! This was a{" "}
               <b>
                 <i>huge</i>
-              </b>{' '}
+              </b>{" "}
               leap forward.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
               paragraph
             >
@@ -199,7 +205,7 @@ export default function CustomSoftware(props) {
               rebuilt using React.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
               paragraph
             >
@@ -208,7 +214,7 @@ export default function CustomSoftware(props) {
               as possible on their work itself.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
               paragraph
             >
@@ -218,7 +224,7 @@ export default function CustomSoftware(props) {
               barrier to entry for mobile app development.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
               paragraph
             >
@@ -227,10 +233,10 @@ export default function CustomSoftware(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item container justify={matchesMD ? 'center' : 'flex-end'} lg>
+        <Grid item container justify={matchesMD ? "center" : "flex-end"} lg>
           <Lottie
             options={defaultOptions}
-            style={{ maxWidth: '40em', margin: 0 }}
+            style={{ maxWidth: "40em", margin: 0 }}
           />
         </Grid>
       </Grid>
@@ -248,32 +254,32 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        direction={matchesMD ? 'column' : 'row'}
+        direction={matchesMD ? "column" : "row"}
         className={classes.rowContainer}
-        style={{ backgroundColor: '#b3b3b3', height: '90em' }}
+        style={{ backgroundColor: "#b3b3b3", height: "90em" }}
       >
         <Grid
           item
           container
           direction="column"
-          alignItems={matchesMD ? 'center' : undefined}
+          alignItems={matchesMD ? "center" : undefined}
           lg
         >
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="h4"
               gutterBottom
-              style={{ color: '#000', marginTop: '5em' }}
+              style={{ color: "#000", marginTop: "5em" }}
             >
               Consultation
             </Typography>
           </Grid>
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Our process begins the moment you realize you need a piece of
@@ -283,9 +289,9 @@ export default function CustomSoftware(props) {
               your business holistically to find the best solutions.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Detailed notes will be taken on your requirements and constraints,
@@ -293,9 +299,9 @@ export default function CustomSoftware(props) {
               consideration.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Cutting-edge advancements in machine learning like object
@@ -305,7 +311,7 @@ export default function CustomSoftware(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item lg style={{ alignSelf: 'center' }}>
+        <Grid item lg style={{ alignSelf: "center" }}>
           <img
             src="/assets/consultationIcon.svg"
             alt="handshake"
@@ -317,41 +323,41 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        direction={matchesMD ? 'column' : 'row'}
+        direction={matchesMD ? "column" : "row"}
         className={classes.rowContainer}
-        style={{ backgroundColor: '#FF7473', height: '90em' }}
+        style={{ backgroundColor: "#FF7473", height: "90em" }}
       >
         <Grid
           item
           container
           direction="column"
-          alignItems={matchesMD ? 'center' : undefined}
+          alignItems={matchesMD ? "center" : undefined}
           lg
         >
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="h4"
               gutterBottom
-              style={{ color: '#000', marginTop: '5em' }}
+              style={{ color: "#000", marginTop: "5em" }}
             >
               Mockup
             </Typography>
           </Grid>
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               After we settle on the best path forward and decide on a solution
               to pursue, details like the cost and timeline will be finalized.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Then it’s time for us to start on your minimum viable product.
@@ -360,9 +366,9 @@ export default function CustomSoftware(props) {
               captures the essential layout structure and functionality.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               This helps us understand and refine the solution itself before
@@ -370,7 +376,7 @@ export default function CustomSoftware(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item lg style={{ alignSelf: 'center' }}>
+        <Grid item lg style={{ alignSelf: "center" }}>
           <img
             src="/assets/mockupIcon.svg"
             alt="basic website design outline"
@@ -382,32 +388,32 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        direction={matchesMD ? 'column' : 'row'}
+        direction={matchesMD ? "column" : "row"}
         className={classes.rowContainer}
-        style={{ backgroundColor: '#39b54a', height: '90em' }}
+        style={{ backgroundColor: "#39b54a", height: "90em" }}
       >
         <Grid
           item
           container
           direction="column"
-          alignItems={matchesMD ? 'center' : undefined}
+          alignItems={matchesMD ? "center" : undefined}
           lg
         >
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="h4"
               gutterBottom
-              style={{ color: '#000', marginTop: '5em' }}
+              style={{ color: "#000", marginTop: "5em" }}
             >
               Review
             </Typography>
           </Grid>
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Before moving any farther we come back to you with our progress.
@@ -416,9 +422,9 @@ export default function CustomSoftware(props) {
               been done.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               We give you an interactive demonstration of the mockups,
@@ -426,9 +432,9 @@ export default function CustomSoftware(props) {
               screen and every anticipated feature.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Once you’re completely satisfied with the vision for our solution
@@ -436,7 +442,7 @@ export default function CustomSoftware(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item lg style={{ alignSelf: 'center' }}>
+        <Grid item lg style={{ alignSelf: "center" }}>
           <img
             src="/assets/reviewIcon.svg"
             alt="magnifying glass"
@@ -448,32 +454,32 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        direction={matchesMD ? 'column' : 'row'}
+        direction={matchesMD ? "column" : "row"}
         className={classes.rowContainer}
-        style={{ backgroundColor: '#a67c52', height: '90em' }}
+        style={{ backgroundColor: "#a67c52", height: "90em" }}
       >
         <Grid
           item
           container
           direction="column"
-          alignItems={matchesMD ? 'center' : undefined}
+          alignItems={matchesMD ? "center" : undefined}
           lg
         >
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="h4"
               gutterBottom
-              style={{ color: '#000', marginTop: '5em' }}
+              style={{ color: "#000", marginTop: "5em" }}
             >
               Design
             </Typography>
           </Grid>
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Using the mockups and notes taken during the consultation as
@@ -483,9 +489,9 @@ export default function CustomSoftware(props) {
               with.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               No aspect is superfluous, and care will be taken with every
@@ -493,7 +499,7 @@ export default function CustomSoftware(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item lg style={{ alignSelf: 'center' }}>
+        <Grid item lg style={{ alignSelf: "center" }}>
           <img
             src="/assets/designIcon.svg"
             alt="paint brush leaving stroke of paint"
@@ -505,41 +511,41 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        direction={matchesMD ? 'column' : 'row'}
+        direction={matchesMD ? "column" : "row"}
         className={classes.rowContainer}
-        style={{ backgroundColor: '#39b54a', height: '90em' }}
+        style={{ backgroundColor: "#39b54a", height: "90em" }}
       >
         <Grid
           item
           container
           direction="column"
-          alignItems={matchesMD ? 'center' : undefined}
+          alignItems={matchesMD ? "center" : undefined}
           lg
         >
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="h4"
               gutterBottom
-              style={{ color: '#000', marginTop: '5em' }}
+              style={{ color: "#000", marginTop: "5em" }}
             >
               Review
             </Typography>
           </Grid>
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               A second round of review is essential to our goal of creating
               exactly what you want, exactly how you want it.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               This time we’ll be going over the finalized designs in another
@@ -549,7 +555,7 @@ export default function CustomSoftware(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item lg style={{ alignSelf: 'center' }}>
+        <Grid item lg style={{ alignSelf: "center" }}>
           <img
             src="/assets/reviewIcon.svg"
             alt="magnifying glass"
@@ -561,40 +567,40 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        direction={matchesMD ? 'column' : 'row'}
+        direction={matchesMD ? "column" : "row"}
         className={classes.rowContainer}
-        style={{ backgroundColor: '#fbb03b', height: '90em' }}
+        style={{ backgroundColor: "#fbb03b", height: "90em" }}
       >
         <Grid
           item
           container
           direction="column"
-          alignItems={matchesMD ? 'center' : undefined}
+          alignItems={matchesMD ? "center" : undefined}
           lg
         >
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="h4"
               gutterBottom
-              style={{ color: '#000', marginTop: '5em' }}
+              style={{ color: "#000", marginTop: "5em" }}
             >
               Build
             </Typography>
           </Grid>
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Here’s where we get down to business.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Engineering begins after your approval on the final designs. We
@@ -602,18 +608,18 @@ export default function CustomSoftware(props) {
               some areas over others.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Each area is then developed in order of importance until ready to
               be connected to the next piece.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Typically the backend, behind the scenes operations are completed
@@ -621,9 +627,9 @@ export default function CustomSoftware(props) {
               front end, user side of things.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Finishing the application doesn’t mean we’re done though, because
@@ -631,9 +637,9 @@ export default function CustomSoftware(props) {
               intended devices.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Only after our rigorous examinations will we accept a product as
@@ -643,7 +649,7 @@ export default function CustomSoftware(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item lg style={{ alignSelf: 'center' }}>
+        <Grid item lg style={{ alignSelf: "center" }}>
           <img
             src="/assets/buildIcon.svg"
             alt="building construction site"
@@ -655,40 +661,40 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        direction={matchesMD ? 'column' : 'row'}
+        direction={matchesMD ? "column" : "row"}
         className={classes.rowContainer}
-        style={{ backgroundColor: '#c1272d', height: '90em' }}
+        style={{ backgroundColor: "#c1272d", height: "90em" }}
       >
         <Grid
           item
           container
           direction="column"
-          alignItems={matchesMD ? 'center' : undefined}
+          alignItems={matchesMD ? "center" : undefined}
           lg
         >
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="h4"
               gutterBottom
-              style={{ color: '#000', marginTop: '5em' }}
+              style={{ color: "#000", marginTop: "5em" }}
             >
               Launch
             </Typography>
           </Grid>
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               The moment we’ve all been waiting for.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               When construction comes to a close you’re the first one to know.
@@ -697,9 +703,9 @@ export default function CustomSoftware(props) {
               users.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               When you say the word, we press the button and launch your project
@@ -709,7 +715,7 @@ export default function CustomSoftware(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item lg style={{ alignSelf: 'center' }}>
+        <Grid item lg style={{ alignSelf: "center" }}>
           <img
             src="/assets/launchIcon.svg"
             alt="rocket"
@@ -721,49 +727,49 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        direction={matchesMD ? 'column' : 'row'}
+        direction={matchesMD ? "column" : "row"}
         className={classes.rowContainer}
-        style={{ backgroundColor: '#8e45ce', height: '90em' }}
+        style={{ backgroundColor: "#8e45ce", height: "90em" }}
       >
         <Grid
           item
           container
           direction="column"
-          alignItems={matchesMD ? 'center' : undefined}
+          alignItems={matchesMD ? "center" : undefined}
           lg
         >
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="h4"
               gutterBottom
-              style={{ color: '#000', marginTop: '5em' }}
+              style={{ color: "#000", marginTop: "5em" }}
             >
               Maintain
             </Typography>
           </Grid>
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Our work doesn’t end there.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               After a successful launch we keep in close contact to listen to
               feedback and hear how the project is being received.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               From there on out we make sure your application is kept up to date
@@ -774,7 +780,7 @@ export default function CustomSoftware(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item lg style={{ alignSelf: 'center' }}>
+        <Grid item lg style={{ alignSelf: "center" }}>
           <img
             src="/assets/maintainIcon.svg"
             alt="wrench tightening bolts"
@@ -786,32 +792,32 @@ export default function CustomSoftware(props) {
       <Grid
         item
         container
-        direction={matchesMD ? 'column' : 'row'}
+        direction={matchesMD ? "column" : "row"}
         className={classes.rowContainer}
-        style={{ backgroundColor: '#29abe2', height: '90em' }}
+        style={{ backgroundColor: "#29abe2", height: "90em" }}
       >
         <Grid
           item
           container
           direction="column"
-          alignItems={matchesMD ? 'center' : undefined}
+          alignItems={matchesMD ? "center" : undefined}
           lg
         >
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="h4"
               gutterBottom
-              style={{ color: '#000', marginTop: '5em' }}
+              style={{ color: "#000", marginTop: "5em" }}
             >
               Iterate
             </Typography>
           </Grid>
           <Grid item>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               The cycle repeats whenever you come up with a new idea for
@@ -819,9 +825,9 @@ export default function CustomSoftware(props) {
               entirely.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               By planning for future features and changes we can build and
@@ -830,9 +836,9 @@ export default function CustomSoftware(props) {
               content.
             </Typography>
             <Typography
-              align={matchesMD ? 'center' : undefined}
+              align={matchesMD ? "center" : undefined}
               variant="body1"
-              style={{ color: '#fff', maxWidth: '20em' }}
+              style={{ color: "#fff", maxWidth: "20em" }}
               paragraph
             >
               Our iterative process will keep you current and competitive,
@@ -841,7 +847,7 @@ export default function CustomSoftware(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item lg style={{ alignSelf: 'center' }}>
+        <Grid item lg style={{ alignSelf: "center" }}>
           <img
             src="/assets/iterateIcon.svg"
             alt="falling dominoes"

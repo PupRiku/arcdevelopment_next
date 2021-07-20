@@ -1,36 +1,36 @@
-import React from 'react';
-import Head from 'next/head';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Avatar from '@material-ui/core/Avatar';
-import Hidden from '@material-ui/core/Hidden';
+import React from "react";
+import Head from "next/head";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Avatar from "@material-ui/core/Avatar";
+import Hidden from "@material-ui/core/Hidden";
 
-import CallToAction from '../src/ui/CallToAction';
+import CallToAction from "../src/ui/CallToAction";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   missionStatement: {
-    fontStyle: 'italic',
+    fontStyle: "italic",
     fontWeight: 300,
-    fontSize: '1.5rem',
-    maxWidth: '50em',
+    fontSize: "1.5rem",
+    maxWidth: "50em",
     lineHeight: 1.4,
   },
   rowContainer: {
-    paddingLeft: '5em',
-    paddingRight: '5em',
-    [theme.breakpoints.down('sm')]: {
-      paddingLeft: '1.5em',
-      paddingRight: '1.5em',
+    paddingLeft: "5em",
+    paddingRight: "5em",
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: "1.5em",
+      paddingRight: "1.5em",
     },
   },
   avatar: {
-    height: '25em',
-    width: '25em',
-    [theme.breakpoints.down('sm')]: {
-      height: '20em',
-      width: '20em',
+    height: "25em",
+    width: "25em",
+    [theme.breakpoints.down("sm")]: {
+      height: "20em",
+      width: "20em",
       maxHeight: 300,
       maxWidth: 300,
     },
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 export default function About(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   //  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
   //  const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
 
@@ -48,13 +48,20 @@ export default function About(props) {
     <Grid container direction="column">
       <Head>
         <title key="title">About Us - History & Team | Arc Development</title>
+        <meta
+          name="description"
+          key="description"
+          content="We provide the fastest, most modern, affordable, and 
+          aesthetic software design and development services in the Midwest. 
+          Get a free online estimate now!"
+        />
       </Head>
       <Grid
         item
         className={classes.rowContainer}
-        style={{ marginTop: matchesMD ? '1em' : '2em' }}
+        style={{ marginTop: matchesMD ? "1em" : "2em" }}
       >
-        <Typography variant="h2" align={matchesMD ? 'center' : undefined}>
+        <Typography variant="h2" align={matchesMD ? "center" : undefined}>
           About Us
         </Typography>
       </Grid>
@@ -63,7 +70,7 @@ export default function About(props) {
           variant="h4"
           align="center"
           className={classes.missionStatement}
-          style={{ marginTop: '3em' }}
+          style={{ marginTop: "3em" }}
         >
           Whether it be person to person, business to consumer, or an individual
           to their interests, technology is meant to bring us closer to what we
@@ -76,9 +83,9 @@ export default function About(props) {
         item
         container
         className={classes.rowContainer}
-        style={{ marginTop: '10em', marginBottom: '10em' }}
-        direction={matchesMD ? 'column' : 'row'}
-        alignItems={matchesMD ? 'center' : undefined}
+        style={{ marginTop: "10em", marginBottom: "10em" }}
+        direction={matchesMD ? "column" : "row"}
+        alignItems={matchesMD ? "center" : undefined}
         justify="space-around"
       >
         <Grid item>
@@ -87,13 +94,13 @@ export default function About(props) {
             container
             direction="column"
             lg
-            style={{ maxWidth: '35em' }}
+            style={{ maxWidth: "35em" }}
           >
             <Grid item>
               <Typography
                 variant="h4"
                 gutterBottom
-                align={matchesMD ? 'center' : undefined}
+                align={matchesMD ? "center" : undefined}
               >
                 History
               </Typography>
@@ -102,15 +109,15 @@ export default function About(props) {
               <Typography
                 variant="body1"
                 paragraph
-                style={{ fontWeight: 700, fontStyle: 'italic' }}
-                align={matchesMD ? 'center' : undefined}
+                style={{ fontWeight: 700, fontStyle: "italic" }}
+                align={matchesMD ? "center" : undefined}
               >
                 We’re the new kid on the block.
               </Typography>
               <Typography
                 variant="body1"
                 paragraph
-                align={matchesMD ? 'center' : undefined}
+                align={matchesMD ? "center" : undefined}
               >
                 Founded in 2019, we’re ready to get our hands on the world’s
                 business problems.
@@ -118,7 +125,7 @@ export default function About(props) {
               <Typography
                 variant="body1"
                 paragraph
-                align={matchesMD ? 'center' : undefined}
+                align={matchesMD ? "center" : undefined}
               >
                 It all started with one question: Why aren’t all businesses
                 using available technology? There are many different answers to
@@ -128,7 +135,7 @@ export default function About(props) {
               <Typography
                 variant="body1"
                 paragraph
-                align={matchesMD ? 'center' : undefined}
+                align={matchesMD ? "center" : undefined}
               >
                 We aim to be a powerful force in overcoming these obstacles.
                 Recent developments in software engineering and computing power,
@@ -141,7 +148,7 @@ export default function About(props) {
               <Typography
                 variant="body1"
                 paragraph
-                align={matchesMD ? 'center' : undefined}
+                align={matchesMD ? "center" : undefined}
               >
                 All this change can be a lot to keep up with, and that’s where
                 we come in.
@@ -154,7 +161,7 @@ export default function About(props) {
             <img
               src="/assets/history.svg"
               alt="quill pen sitting on top of book"
-              style={{ maxHeight: matchesMD ? 200 : '22em' }}
+              style={{ maxHeight: matchesMD ? 200 : "22em" }}
             />
           </Grid>
         </Grid>
@@ -165,7 +172,7 @@ export default function About(props) {
         direction="column"
         className={classes.rowContainer}
         alignItems="center"
-        style={{ marginBottom: '15em' }}
+        style={{ marginBottom: "15em" }}
       >
         <Grid item>
           <Typography variant="h4" gutterBottom align="center">
@@ -187,9 +194,9 @@ export default function About(props) {
             className={classes.avatar}
           />
         </Grid>
-        <Grid item container justify={matchesMD ? 'center' : undefined}>
+        <Grid item container justify={matchesMD ? "center" : undefined}>
           <Hidden lgUp>
-            <Grid item lg style={{ maxWidth: '45em', padding: '1.25em' }}>
+            <Grid item lg style={{ maxWidth: "45em", padding: "1.25em" }}>
               <Typography variant="body1" align="center" paragraph>
                 I taught myself basic coding from a library book in third grade,
                 and ever since then my passion has solely been set on learning —
@@ -207,8 +214,8 @@ export default function About(props) {
             container
             direction="column"
             lg
-            alignItems={matchesMD ? 'center' : undefined}
-            style={{ marginBottom: matchesMD ? '2.5em' : 0 }}
+            alignItems={matchesMD ? "center" : undefined}
+            style={{ marginBottom: matchesMD ? "2.5em" : 0 }}
           >
             <Grid item>
               <img
@@ -224,7 +231,7 @@ export default function About(props) {
             </Grid>
           </Grid>
           <Hidden mdDown>
-            <Grid item lg style={{ maxWidth: '45em', padding: '1.25em' }}>
+            <Grid item lg style={{ maxWidth: "45em", padding: "1.25em" }}>
               <Typography variant="body1" align="center" paragraph>
                 I taught myself basic coding from a library book in third grade,
                 and ever since then my passion has solely been set on learning —
@@ -242,7 +249,7 @@ export default function About(props) {
             container
             direction="column"
             lg
-            alignItems={matchesMD ? 'center' : 'flex-end'}
+            alignItems={matchesMD ? "center" : "flex-end"}
           >
             <Grid item>
               <img

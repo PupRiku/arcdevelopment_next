@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
-import Head from 'next/head';
-import axios from 'axios';
-import Link from '../src/Link';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import Snackbar from '@material-ui/core/Snackbar';
+import React, { useState } from "react";
+import Head from "next/head";
+import axios from "axios";
+import Link from "../src/Link";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Snackbar from "@material-ui/core/Snackbar";
 
-import ButtonArrow from '../src/ui/ButtonArrow';
+import ButtonArrow from "../src/ui/ButtonArrow";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   background: {
     backgroundImage: `url('/assets/background.jpg')`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    height: '60em',
-    paddingBottom: '10em',
-    [theme.breakpoints.down('md')]: {
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    height: "60em",
+    paddingBottom: "10em",
+    [theme.breakpoints.down("md")]: {
       backgroundImage: `url('/assets/mobileBackground.jpg')`,
     },
   },
@@ -33,29 +33,29 @@ const useStyles = makeStyles((theme) => ({
     height: 80,
     width: 205,
     backgroundColor: theme.palette.common.orange,
-    fontSize: '1.5rem',
-    marginRight: '5em',
-    marginLeft: '2em',
-    '&:hover': {
+    fontSize: "1.5rem",
+    marginRight: "5em",
+    marginLeft: "2em",
+    "&:hover": {
       backgroundColor: theme.palette.secondary.light,
     },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       marginRight: 0,
       marginLeft: 0,
     },
   },
   learnButton: {
     ...theme.typography.learnButton,
-    fontSize: '0.7rem',
+    fontSize: "0.7rem",
     height: 35,
     padding: 5,
-    [theme.breakpoints.down('md')]: {
-      marginBottom: '2em',
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "2em",
     },
   },
   message: {
     border: `2px solid ${theme.palette.common.blue}`,
-    marginTop: '5em',
+    marginTop: "5em",
     borderRadius: 5,
   },
   sendButton: {
@@ -63,12 +63,12 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 50,
     height: 45,
     width: 245,
-    fontSize: '1rem',
+    fontSize: "1rem",
     backgroundColor: theme.palette.common.orange,
-    '&:hover': {
+    "&:hover": {
       backgroundColor: theme.palette.secondary.light,
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       height: 40,
       width: 225,
     },
@@ -78,19 +78,19 @@ const useStyles = makeStyles((theme) => ({
 export default function Contact(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
-  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
-  const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
 
-  const [email, setEmail] = useState('');
-  const [emailHelper, setEmailHelper] = useState('');
+  const [email, setEmail] = useState("");
+  const [emailHelper, setEmailHelper] = useState("");
 
-  const [phone, setPhone] = useState('');
-  const [phoneHelper, setPhoneHelper] = useState('');
+  const [phone, setPhone] = useState("");
+  const [phoneHelper, setPhoneHelper] = useState("");
 
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   const [open, setOpen] = useState(false);
 
@@ -98,36 +98,36 @@ export default function Contact(props) {
 
   const [alert, setAlert] = useState({
     open: false,
-    message: '',
-    backgroundColor: '',
+    message: "",
+    backgroundColor: "",
   });
 
-  const onChange = (event) => {
+  const onChange = event => {
     let valid;
 
     switch (event.target.id) {
-      case 'email':
+      case "email":
         setEmail(event.target.value);
         valid = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(
           event.target.value
         );
 
         if (!valid) {
-          setEmailHelper('Invalid email');
+          setEmailHelper("Invalid email");
         } else {
-          setEmailHelper('');
+          setEmailHelper("");
         }
         break;
-      case 'phone':
+      case "phone":
         setPhone(event.target.value);
         valid = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(
           event.target.value
         );
 
         if (!valid) {
-          setPhoneHelper('Invalid phone');
+          setPhoneHelper("Invalid phone");
         } else {
-          setPhoneHelper('');
+          setPhoneHelper("");
         }
         break;
       default:
@@ -140,7 +140,7 @@ export default function Contact(props) {
 
     axios
       .get(
-        'https://us-central1-material-ui-course-8e786.cloudfunctions.net/sendMail',
+        "https://us-central1-material-ui-course-8e786.cloudfunctions.net/sendMail",
         {
           params: {
             name: name,
@@ -150,25 +150,25 @@ export default function Contact(props) {
           },
         }
       )
-      .then((res) => {
+      .then(res => {
         setLoading(false);
         setOpen(false);
-        setName('');
-        setEmail('');
-        setPhone('');
-        setMessage('');
+        setName("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
         setAlert({
           open: true,
-          message: 'Message sent successfully!',
-          backgroundColor: '#4bb543',
+          message: "Message sent successfully!",
+          backgroundColor: "#4bb543",
         });
       })
-      .catch((err) => {
+      .catch(err => {
         setLoading(false);
         setAlert({
           open: true,
-          message: 'Something went wrong, please try again!',
-          backgroundColor: '#ff3232',
+          message: "Something went wrong, please try again!",
+          backgroundColor: "#ff3232",
         });
       });
   };
@@ -179,7 +179,7 @@ export default function Contact(props) {
       <img
         src="/assets/send.svg"
         alt="paper airplane"
-        style={{ marginLeft: '1em' }}
+        style={{ marginLeft: "1em" }}
       />
     </React.Fragment>
   );
@@ -188,6 +188,13 @@ export default function Contact(props) {
     <Grid container direction="row">
       <Head>
         <title key="title">Contact Us | Arc Development</title>
+        <meta
+          name="description"
+          key="description"
+          content="Let us guide you through the custoom software design and 
+          development process. Send us a message with any of your ideas or 
+          questions to get started!"
+        />
       </Head>
       <Grid
         item
@@ -198,83 +205,83 @@ export default function Contact(props) {
         xl={3}
         alignItems="center"
         style={{
-          marginBottom: matchesMD ? '5em' : 0,
-          marginTop: matchesSM ? '1em' : matchesMD ? '5em' : 0,
+          marginBottom: matchesMD ? "5em" : 0,
+          marginTop: matchesSM ? "1em" : matchesMD ? "5em" : 0,
         }}
       >
         <Grid item>
           <Grid container direction="column">
             <Grid item>
               <Typography
-                align={matchesMD ? 'center' : undefined}
+                align={matchesMD ? "center" : undefined}
                 variant="h2"
                 style={{ lineHeight: 1 }}
               >
                 Contact Us
               </Typography>
               <Typography
-                align={matchesMD ? 'center' : undefined}
+                align={matchesMD ? "center" : undefined}
                 variant="body1"
                 style={{ color: theme.palette.common.blue }}
               >
                 We're waiting.
               </Typography>
             </Grid>
-            <Grid item container style={{ marginTop: '2em' }}>
+            <Grid item container style={{ marginTop: "2em" }}>
               <Grid item>
                 <img
                   src="/assets/phone.svg"
                   alt="phone"
-                  style={{ marginRight: '0.5em' }}
+                  style={{ marginRight: "0.5em" }}
                 />
               </Grid>
               <Grid item>
                 <Typography
                   variant="body1"
-                  style={{ color: theme.palette.common.blue, fontSize: '1rem' }}
+                  style={{ color: theme.palette.common.blue, fontSize: "1rem" }}
                 >
                   <a
                     href="tel:5555555555"
-                    style={{ textDecoration: 'none', color: 'inherit' }}
+                    style={{ textDecoration: "none", color: "inherit" }}
                   >
                     (555) 555-5555
                   </a>
                 </Typography>
               </Grid>
             </Grid>
-            <Grid item container style={{ marginBottom: '2em' }}>
+            <Grid item container style={{ marginBottom: "2em" }}>
               <Grid item>
                 <img
                   src="/assets/email.svg"
                   alt="envelope"
-                  style={{ marginRight: '0.5em', verticalAlign: 'bottom' }}
+                  style={{ marginRight: "0.5em", verticalAlign: "bottom" }}
                 />
               </Grid>
               <Grid item>
                 <Typography
                   variant="body1"
-                  style={{ color: theme.palette.common.blue, fontSize: '1rem' }}
+                  style={{ color: theme.palette.common.blue, fontSize: "1rem" }}
                 >
                   <a
                     href="mailto:chris.diorio12@gmail.com"
-                    style={{ textDecoration: 'none', color: 'inherit' }}
+                    style={{ textDecoration: "none", color: "inherit" }}
                   >
                     chris.diorio12@gmail.com
                   </a>
                 </Typography>
               </Grid>
             </Grid>
-            <Grid item container direction="column" style={{ width: '20em' }}>
-              <Grid item style={{ marginBottom: '0.5em' }}>
+            <Grid item container direction="column" style={{ width: "20em" }}>
+              <Grid item style={{ marginBottom: "0.5em" }}>
                 <TextField
                   label="Name"
                   id="name"
                   fullWidth
                   value={name}
-                  onChange={(event) => setName(event.target.value)}
+                  onChange={event => setName(event.target.value)}
                 />
               </Grid>
-              <Grid item style={{ marginBottom: '0.5em' }}>
+              <Grid item style={{ marginBottom: "0.5em" }}>
                 <TextField
                   label="Email"
                   error={emailHelper.length !== 0}
@@ -285,7 +292,7 @@ export default function Contact(props) {
                   onChange={onChange}
                 />
               </Grid>
-              <Grid item style={{ marginBottom: '0.5em' }}>
+              <Grid item style={{ marginBottom: "0.5em" }}>
                 <TextField
                   label="Phone"
                   error={phoneHelper.length !== 0}
@@ -297,7 +304,7 @@ export default function Contact(props) {
                 />
               </Grid>
             </Grid>
-            <Grid item style={{ width: '20em' }}>
+            <Grid item style={{ width: "20em" }}>
               <TextField
                 InputProps={{ disableUnderline: true }}
                 id="message"
@@ -307,10 +314,10 @@ export default function Contact(props) {
                 multiline
                 placeholder="Tell us more about your project."
                 rows={10}
-                onChange={(event) => setMessage(event.target.value)}
+                onChange={event => setMessage(event.target.value)}
               />
             </Grid>
-            <Grid item container justify="center" style={{ marginTop: '2em' }}>
+            <Grid item container justify="center" style={{ marginTop: "2em" }}>
               <Button
                 disabled={
                   name.length === 0 ||
@@ -337,22 +344,22 @@ export default function Contact(props) {
         onClose={() => setOpen(false)}
         PaperProps={{
           style: {
-            paddingTop: matchesXS ? '1em' : '5em',
-            paddingBottom: matchesXS ? '1em' : '5em',
+            paddingTop: matchesXS ? "1em" : "5em",
+            paddingBottom: matchesXS ? "1em" : "5em",
             paddingLeft: matchesXS
               ? 0
               : matchesSM
-              ? '5em'
+              ? "5em"
               : matchesMD
-              ? '15em'
-              : '25em',
+              ? "15em"
+              : "25em",
             paddingRight: matchesXS
               ? 0
               : matchesSM
-              ? '5em'
+              ? "5em"
               : matchesMD
-              ? '15em'
-              : '25em',
+              ? "15em"
+              : "25em",
           },
         }}
       >
@@ -363,16 +370,16 @@ export default function Contact(props) {
                 Confirm Message
               </Typography>
             </Grid>
-            <Grid item style={{ marginBottom: '0.5em' }}>
+            <Grid item style={{ marginBottom: "0.5em" }}>
               <TextField
                 label="Name"
                 id="name"
                 fullWidth
                 value={name}
-                onChange={(event) => setName(event.target.value)}
+                onChange={event => setName(event.target.value)}
               />
             </Grid>
-            <Grid item style={{ marginBottom: '0.5em' }}>
+            <Grid item style={{ marginBottom: "0.5em" }}>
               <TextField
                 label="Email"
                 error={emailHelper.length !== 0}
@@ -383,7 +390,7 @@ export default function Contact(props) {
                 onChange={onChange}
               />
             </Grid>
-            <Grid item style={{ marginBottom: '0.5em' }}>
+            <Grid item style={{ marginBottom: "0.5em" }}>
               <TextField
                 label="Phone"
                 error={phoneHelper.length !== 0}
@@ -395,7 +402,7 @@ export default function Contact(props) {
               />
             </Grid>
           </Grid>
-          <Grid item style={{ width: matchesSM ? '100%' : '20em' }}>
+          <Grid item style={{ width: matchesSM ? "100%" : "20em" }}>
             <TextField
               InputProps={{ disableUnderline: true }}
               id="message"
@@ -405,16 +412,16 @@ export default function Contact(props) {
               multiline
               placeholder="Tell us more about your project."
               rows={10}
-              onChange={(event) => setMessage(event.target.value)}
+              onChange={event => setMessage(event.target.value)}
             />
           </Grid>
           <Grid item>
             <Grid
               item
               container
-              style={{ marginTop: '2em' }}
+              style={{ marginTop: "2em" }}
               alignItems="center"
-              direction={matchesSM ? 'column' : 'row'}
+              direction={matchesSM ? "column" : "row"}
             >
               <Grid item>
                 <Button
@@ -450,42 +457,42 @@ export default function Contact(props) {
         open={alert.open}
         message={alert.message}
         ContentProps={{ style: { backgroundColor: alert.backgroundColor } }}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
         onClose={() => setAlert({ ...alert, open: false })}
         autoHideDuration={4000}
       />
       <Grid
         item
         container
-        direction={matchesMD ? 'column' : 'row'}
+        direction={matchesMD ? "column" : "row"}
         className={classes.background}
         lg={8}
         xl={9}
         alignItems="center"
-        justify={matchesMD ? 'center' : undefined}
+        justify={matchesMD ? "center" : undefined}
       >
         <Grid
           item
           style={{
-            marginLeft: matchesMD ? 0 : '3em',
-            textAlign: matchesMD ? 'center' : 'inherit',
+            marginLeft: matchesMD ? 0 : "3em",
+            textAlign: matchesMD ? "center" : "inherit",
           }}
         >
           <Grid container direction="column">
             <Grid item>
-              <Typography align={matchesMD ? 'center' : undefined} variant="h2">
+              <Typography align={matchesMD ? "center" : undefined} variant="h2">
                 Simple Software.
                 <br />
                 Revolutionary Results.
               </Typography>
               <Typography
-                align={matchesMD ? 'center' : undefined}
+                align={matchesMD ? "center" : undefined}
                 variant="subtitle2"
-                style={{ fontSize: '1.5rem' }}
+                style={{ fontSize: "1.5rem" }}
               >
                 Take advantage of the 21st Century.
               </Typography>
-              <Grid container justify={matchesMD ? 'center' : undefined} item>
+              <Grid container justify={matchesMD ? "center" : undefined} item>
                 <Button
                   component={Link}
                   href="/revolution"
