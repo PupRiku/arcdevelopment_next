@@ -59,7 +59,7 @@ export default function CustomSoftware(props) {
       <Grid item className={classes.rowContainer} style={{ marginTop: "2em" }}>
         <Typography
           align={matchesMD ? "center" : undefined}
-          variant="h2"
+          variant="h1"
           style={{ fontFamily: "Pacifico" }}
         >
           The Revolution
