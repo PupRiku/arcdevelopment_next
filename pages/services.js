@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Link from '../src/Link';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -45,6 +46,11 @@ export default function Services(props) {
 
   return (
     <Grid container direction="column">
+      <Head>
+        <title key="title">
+          Top Custom Software Development Services | Arc Development
+        </title>
+      </Head>
       <Grid
         item
         style={{

@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Link from '../src/Link';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
@@ -38,6 +39,11 @@ export default function Websites(props) {
 
   return (
     <Grid container direction="column">
+      <Head>
+        <title key="title">
+          Stunning Custom Website Design | Arc Development
+        </title>
+      </Head>
       <Grid
         item
         container
