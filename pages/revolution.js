@@ -454,7 +454,7 @@ export default function CustomSoftware(props) {
             src="/assets/reviewIcon.svg"
             alt="magnifying glass"
             width="100%"
-            style={{ maxWidth: 700 }}
+            style={{ maxWidth: "40em" }}
           />
         </Grid>
       </Grid>
@@ -567,7 +567,7 @@ export default function CustomSoftware(props) {
             src="/assets/reviewIcon.svg"
             alt="magnifying glass"
             width="100%"
-            style={{ maxWidth: 700 }}
+            style={{ maxWidth: "40em" }}
           />
         </Grid>
       </Grid>

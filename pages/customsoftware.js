@@ -247,8 +247,9 @@ export default function CustomSoftware(props) {
         container
         alignItems={matchesMD ? "center" : undefined}
         direction={matchesMD ? "column" : "row"}
-        justify="space-between"
+        justify={matchesMD ? "center" : "space-between"}
         className={classes.rowContainer}
+        style={{ display: matchesMD ? "grid" : undefined }}
       >
         <Grid
           item
@@ -368,9 +369,10 @@ export default function CustomSoftware(props) {
         container
         alignItems={matchesMD ? "center" : undefined}
         direction={matchesMD ? "column" : "row"}
-        justify="space-between"
+        justify={matchesMD ? "center" : "space-between"}
         style={{ marginBottom: "20em" }}
         className={classes.rowContainer}
+        style={{ display: matchesMD ? "grid" : undefined }}
       >
         <Grid
           item
