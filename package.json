@@ -24,9 +24,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start -p $PORT",
-    "postbuild": "node scripts/sitemap.js",
-    "heroku-postbuild": "npm run build"
+    "start": "next start",
+    "postbuild": "node scripts/sitemap.js"
   },
   "devDependencies": {
     "prettier": "2.3.2"
