@@ -29,9 +29,7 @@
     "postbuild": "node scripts/sitemap.js"
   },
   "devDependencies": {
+    "fsevents": "^2.3.2",
     "prettier": "2.3.2"
-  },
-  "optionalDependencies": {
-    "fsevents": "^2.3.2"
   }
 }
