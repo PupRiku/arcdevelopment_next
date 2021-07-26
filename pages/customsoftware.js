@@ -102,7 +102,7 @@ export default function CustomSoftware(props) {
         item
         container
         direction="row"
-        justify={matchesMD ? "center" : undefined}
+        justifyContent={matchesMD ? "center" : undefined}
         className={classes.rowContainer}
         style={{ marginTop: matchesXS ? "1em" : "2em" }}
       >
@@ -196,7 +196,7 @@ export default function CustomSoftware(props) {
         item
         container
         direction="row"
-        justify="center"
+        justifyContent="center"
         style={{ marginTop: "15em", marginBottom: "20em" }}
         className={classes.rowContainer}
       >
@@ -255,7 +255,7 @@ export default function CustomSoftware(props) {
         container
         alignItems={matchesMD ? "center" : undefined}
         direction={matchesMD ? "column" : "row"}
-        justify={matchesMD ? "center" : "space-between"}
+        justifyContent={matchesMD ? "center" : "space-between"}
         className={classes.rowContainer}
         style={{ display: matchesMD ? "grid" : undefined }}
       >
@@ -377,7 +377,7 @@ export default function CustomSoftware(props) {
         container
         alignItems={matchesMD ? "center" : undefined}
         direction={matchesMD ? "column" : "row"}
-        justify={matchesMD ? "center" : "space-between"}
+        justifyContent={matchesMD ? "center" : "space-between"}
         className={classes.rowContainer}
         style={{ display: matchesMD ? "grid" : undefined }}
       >

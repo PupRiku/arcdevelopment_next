@@ -58,7 +58,7 @@ export default function CallToAction(props) {
     <Grid
       container
       alignItems="center"
-      justify={matchesSM ? "center" : "space-between"}
+      justifyContent={matchesSM ? "center" : "space-between"}
       className={classes.background}
       direction={matchesSM ? "column" : "row"}
     >
@@ -87,7 +87,7 @@ export default function CallToAction(props) {
             >
               Take advantage of the 21st Century.
             </Typography>
-            <Grid container justify={matchesSM ? "center" : undefined} item>
+            <Grid container justifyContent={matchesSM ? "center" : undefined} item>
               <Button
                 component={Link}
                 href="/revolution"

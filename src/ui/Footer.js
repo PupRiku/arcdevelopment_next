@@ -58,7 +58,7 @@ export default function Footer(props) {
   return (
     <footer className={classes.footer}>
       <Hidden mdDown>
-        <Grid container justify="center" className={classes.mainContainer}>
+        <Grid container justifyContent="center" className={classes.mainContainer}>
           <Grid item className={classes.gridItem}>
             <Grid
               container
@@ -242,7 +242,7 @@ export default function Footer(props) {
       />
       <Grid
         container
-        justify="flex-end"
+        justifyContent="flex-end"
         spacing={2}
         className={classes.socialContainer}
       >

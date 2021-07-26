@@ -207,7 +207,7 @@ export default function Contact(props) {
         item
         container
         direction="column"
-        justify="center"
+        justifyContent="center"
         lg={4}
         xl={3}
         alignItems="center"
@@ -324,7 +324,7 @@ export default function Contact(props) {
                 onChange={event => setMessage(event.target.value)}
               />
             </Grid>
-            <Grid item container justify="center" style={{ marginTop: "2em" }}>
+            <Grid item container justifyContent="center" style={{ marginTop: "2em" }}>
               <Button
                 disabled={
                   name.length === 0 ||
@@ -476,7 +476,7 @@ export default function Contact(props) {
         lg={8}
         xl={9}
         alignItems="center"
-        justify={matchesMD ? "center" : undefined}
+        justifyContent={matchesMD ? "center" : undefined}
       >
         <Grid
           item
@@ -499,7 +499,7 @@ export default function Contact(props) {
               >
                 Take advantage of the 21st Century.
               </Typography>
-              <Grid container justify={matchesMD ? "center" : undefined} item>
+              <Grid container justifyContent={matchesMD ? "center" : undefined} item>
                 <Button
                   component={Link}
                   href="/revolution"

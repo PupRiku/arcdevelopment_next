@@ -355,7 +355,7 @@ export default function CustomSoftware(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item container justify={matchesMD ? "center" : "flex-end"} lg>
+        <Grid item container justifyContent={matchesMD ? "center" : "flex-end"} lg>
           <Lottie
             options={defaultOptions}
             style={{ maxWidth: "40em", margin: 0 }}
@@ -367,7 +367,7 @@ export default function CustomSoftware(props) {
         container
         direction="row"
         className={classes.rowContainer}
-        justify="center"
+        justifyContent="center"
       >
         <Grid item>
           <Typography variant="h4" gutterBottom>

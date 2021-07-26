@@ -74,7 +74,7 @@ export default function About(props) {
           About Us
         </Typography>
       </Grid>
-      <Grid item container justify="center" className={classes.rowContainer}>
+      <Grid item container justifyContent="center" className={classes.rowContainer}>
         <Typography
           variant="h4"
           align="center"
@@ -95,7 +95,7 @@ export default function About(props) {
         style={{ marginTop: "10em", marginBottom: "10em" }}
         direction={matchesMD ? "column" : "row"}
         alignItems={matchesMD ? "center" : undefined}
-        justify="space-around"
+        justifyContent="space-around"
       >
         <Grid item>
           <Grid
@@ -166,7 +166,7 @@ export default function About(props) {
           </Grid>
         </Grid>
         <Grid item>
-          <Grid item container justify="center" lg>
+          <Grid item container justifyContent="center" lg>
             <img
               src="/assets/history.svg"
               alt="quill pen sitting on top of book"
@@ -203,7 +203,7 @@ export default function About(props) {
             className={classes.avatar}
           />
         </Grid>
-        <Grid item container justify={matchesMD ? "center" : undefined}>
+        <Grid item container justifyContent={matchesMD ? "center" : undefined}>
           <Hidden lgUp>
             <Grid item lg style={{ maxWidth: "45em", padding: "1.25em" }}>
               <Typography variant="body1" align="center" paragraph>

@@ -71,7 +71,7 @@ export default function MobileApps(props) {
         item
         container
         direction="row"
-        justify={matchesMD ? "center" : undefined}
+        justifyContent={matchesMD ? "center" : undefined}
         className={classes.rowContainer}
         style={{ marginTop: matchesXS ? "1em" : "2em" }}
       >

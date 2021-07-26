@@ -62,7 +62,7 @@ export default function Websites(props) {
         item
         container
         direction="row"
-        justify={matchesMD ? "center" : undefined}
+        justifyContent={matchesMD ? "center" : undefined}
         className={classes.rowContainer}
         style={{ marginTop: matchesXS ? "1em" : "2em" }}
       >
@@ -177,7 +177,7 @@ export default function Websites(props) {
         container
         direction={matchesSM ? "column" : "row"}
         alignItems="center"
-        justify="flex-end"
+        justifyContent="flex-end"
         className={classes.rowContainer}
         style={{ marginTop: "15em", marginBottom: "15em" }}
       >
@@ -261,7 +261,7 @@ export default function Websites(props) {
         container
         direction={matchesSM ? "column" : "row"}
         alignItems="center"
-        justify="flex-end"
+        justifyContent="flex-end"
         className={classes.rowContainer}
         style={{ marginTop: "15em", marginBottom: "15em" }}
       >

@@ -900,7 +900,7 @@ export default function Estimate() {
         <Grid
           item
           container
-          justify="space-between"
+          justifyContent="space-between"
           style={{ width: "18em", marginTop: "3em" }}
         >
           <Grid item>
@@ -960,7 +960,7 @@ export default function Estimate() {
         maxWidth="lg"
         fullScreen={matchesSM}
       >
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <Grid item style={{ marginTop: "1em", marginBottom: "1em" }}>
             <Typography variant="h1" align="center">
               Estimate
@@ -970,7 +970,7 @@ export default function Estimate() {
         <DialogContent>
           <Grid
             container
-            justify="space-around"
+            justifyContent="space-around"
             direction={matchesSM ? "column" : "row"}
             alignItems={matchesSM ? "center" : undefined}
           >

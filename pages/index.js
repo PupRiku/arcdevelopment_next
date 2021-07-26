@@ -163,7 +163,7 @@ export default function LandingPage(props) {
       <Grid item>
         {" "}
         {/*-----Hero Block-----*/}
-        <Grid container justify="flex-end" alignItems="center" direction="row">
+        <Grid container justifyContent="flex-end" alignItems="center" direction="row">
           <Grid sm item className={classes.heroTextContainer}>
             <Typography variant="h1" align="center">
               Bringing West Coast Technology
@@ -172,7 +172,7 @@ export default function LandingPage(props) {
             </Typography>
             <Grid
               container
-              justify="center"
+              justifyContent="center"
               className={classes.buttonContainer}
             >
               <Grid item>
@@ -215,7 +215,7 @@ export default function LandingPage(props) {
         <Grid
           container
           direction="row"
-          justify={matchesSM ? "center" : undefined}
+          justifyContent={matchesSM ? "center" : undefined}
           className={classes.serviceContainer}
         >
           <Grid
@@ -266,7 +266,7 @@ export default function LandingPage(props) {
         <Grid
           container
           direction="row"
-          justify={matchesSM ? "center" : "flex-end"}
+          justifyContent={matchesSM ? "center" : "flex-end"}
           className={classes.serviceContainer}
         >
           <Grid item style={{ textAlign: matchesSM ? "center" : undefined }}>
@@ -311,7 +311,7 @@ export default function LandingPage(props) {
         <Grid
           container
           direction="row"
-          justify={matchesSM ? "center" : undefined}
+          justifyContent={matchesSM ? "center" : undefined}
           className={classes.serviceContainer}
         >
           <Grid
@@ -362,7 +362,7 @@ export default function LandingPage(props) {
           container
           style={{ height: "100em", marginTop: "12em" }}
           alignItems="center"
-          justify="center"
+          justifyContent="center"
         >
           <Card className={classes.revolutionCard}>
             <CardContent>

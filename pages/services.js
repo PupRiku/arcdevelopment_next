@@ -90,7 +90,7 @@ export default function Services(props) {
         <Grid
           container
           direction="row"
-          justify={matchesSM ? "center" : "flex-end"}
+          justifyContent={matchesSM ? "center" : "flex-end"}
           className={classes.serviceContainer}
           style={{ marginTop: matchesSM ? "1em" : "5em" }}
         >
@@ -143,7 +143,7 @@ export default function Services(props) {
         <Grid
           container
           direction="row"
-          justify={matchesSM ? "center" : undefined}
+          justifyContent={matchesSM ? "center" : undefined}
           className={classes.serviceContainer}
         >
           <Grid
@@ -194,7 +194,7 @@ export default function Services(props) {
         <Grid
           container
           direction="row"
-          justify={matchesSM ? "center" : "flex-end"}
+          justifyContent={matchesSM ? "center" : "flex-end"}
           className={classes.serviceContainer}
           style={{ marginBottom: "10em" }}
         >
