@@ -10,6 +10,8 @@ import technologyAnimation from "../src/animations/technologyAnimation/data.json
 
 import CallToAction from "../src/ui/CallToAction";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 const useStyles = makeStyles(theme => ({
   rowContainer: {
     paddingLeft: "5em",
@@ -355,7 +357,12 @@ export default function CustomSoftware(props) {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item container justifyContent={matchesMD ? "center" : "flex-end"} lg>
+        <Grid
+          item
+          container
+          justifyContent={matchesMD ? "center" : "flex-end"}
+          lg
+        >
           <Lottie
             options={defaultOptions}
             style={{ maxWidth: "40em", margin: 0 }}
@@ -414,7 +421,8 @@ export default function CustomSoftware(props) {
             </Grid>
           </Grid>
           <Grid item lg style={{ alignSelf: "center" }}>
-            <img
+            <LazyLoadImage
+              threshold={450}
               src={section.icon}
               alt={section.iconAlt}
               width="100%"

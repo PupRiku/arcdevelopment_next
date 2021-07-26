@@ -15,6 +15,11 @@ import CallToAction from "../src/ui/CallToAction";
 
 import animationData from "../src/animations/landinganimation/data";
 
+import {
+  LazyLoadImage,
+  LazyLoadComponent,
+} from "react-lazy-load-image-component";
+
 const useStyles = makeStyles(theme => ({
   animation: {
     maxWidth: "50em",
@@ -115,6 +120,8 @@ const useStyles = makeStyles(theme => ({
     },
   },
   infoBackground: {
+    position: "absolute",
+    zIndex: -1,
     backgroundImage: `url('/assets/infoBackground.svg')`,
     backgroundPosition: "center",
     backgroundSize: "cover",
@@ -163,7 +170,12 @@ export default function LandingPage(props) {
       <Grid item>
         {" "}
         {/*-----Hero Block-----*/}
-        <Grid container justifyContent="flex-end" alignItems="center" direction="row">
+        <Grid
+          container
+          justifyContent="flex-end"
+          alignItems="center"
+          direction="row"
+        >
           <Grid sm item className={classes.heroTextContainer}>
             <Typography variant="h1" align="center">
               Bringing West Coast Technology
@@ -252,7 +264,7 @@ export default function LandingPage(props) {
             </Button>
           </Grid>
           <Grid item>
-            <img
+            <LazyLoadImage
               className={classes.icon}
               alt="custom software icon"
               src="/assets/customSoftware.svg"
@@ -297,7 +309,7 @@ export default function LandingPage(props) {
             </Button>
           </Grid>
           <Grid item style={{ marginRight: matchesSM ? 0 : "5em" }}>
-            <img
+            <LazyLoadImage
               className={classes.icon}
               alt="mobile phone icon"
               src="/assets/mobileIcon.svg"
@@ -326,7 +338,8 @@ export default function LandingPage(props) {
               Reach More. Discover More. Sell More.
             </Typography>
             <Typography variant="subtitle1">
-              Optimized for Search Engines, {matchesXS && <br />}built for speed.
+              Optimized for Search Engines, {matchesXS && <br />}built for
+              speed.
             </Typography>
             <Button
               component={Link}
@@ -347,7 +360,7 @@ export default function LandingPage(props) {
             </Button>
           </Grid>
           <Grid item>
-            <img
+            <LazyLoadImage
               className={classes.icon}
               alt="website icon"
               src="/assets/websiteIcon.svg"
@@ -399,7 +412,9 @@ export default function LandingPage(props) {
               </Grid>
             </CardContent>
           </Card>
-          <div className={classes.revolutionBackground} />
+          <LazyLoadComponent threshold={850}>
+            <div className={classes.revolutionBackground} />
+          </LazyLoadComponent>
         </Grid>
       </Grid>
       <Grid item>
@@ -407,10 +422,9 @@ export default function LandingPage(props) {
         {/*-----Information Block-----*/}
         <Grid
           container
-          style={{ height: "80em" }}
+          style={{ height: "52.9em" }}
           direction="row"
           alignItems="center"
-          className={classes.infoBackground}
         >
           <Grid
             item
@@ -483,12 +497,17 @@ export default function LandingPage(props) {
               </Grid>
             </Grid>
           </Grid>
+          <LazyLoadComponent threshold={700}>
+            <div className={classes.infoBackground} />
+          </LazyLoadComponent>
         </Grid>
       </Grid>
       <Grid item>
         {" "}
         {/*-----Call to Action Block-----*/}
-        <CallToAction setValue={props.setValue} />
+        <LazyLoadComponent threshold={700}>
+          <CallToAction setValue={props.setValue} />
+        </LazyLoadComponent>
       </Grid>
     </Grid>
   );
