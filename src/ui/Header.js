@@ -225,40 +225,25 @@ export default function Header(props) {
     { name: "Contact Us", link: "/contact", activeIndex: 4 },
   ];
 
+  const path = typeof window !== "undefined" ? window.location.pathname : null;
+
+  const activeIndex = () => {
+    const found = routes.find(({ link }) => link === path);
+    const menuFound = menuOptions.find(({ link }) => link === path);
+
+    if (menuFound) {
+      props.setValue(1);
+      props.setSelectedIndex(menuFound.selectedIndex);
+    } else if (found === undefined) {
+      props.setValue(false);
+    } else {
+      props.setValue(found.activeIndex);
+    }
+  };
+
   useEffect(() => {
-    [...menuOptions, ...routes].forEach(route => {
-      switch (window.location.pathname) {
-        case `${route.link}`:
-          if (props.value !== route.activeIndex) {
-            props.setValue(route.activeIndex);
-            if (
-              route.selectedIndex &&
-              route.selectedIndex !== props.selectedIndex
-            ) {
-              props.setSelectedIndex(route.selectedIndex);
-            }
-          }
-          break;
-        case "/estimate":
-          if (props.value !== false) {
-            props.setValue(false);
-          }
-          break;
-        default:
-          break;
-      }
-    });
-    window.onpopstate = e => {
-      [...menuOptions, ...routes].forEach(route => {
-        if (window.location.pathname === route.link) {
-          props.setValue(route.activeIndex);
-          if (route.selectedIndex !== null) {
-            props.setSelectedIndex(route.selectedIndex);
-          }
-        }
-      });
-    };
-  }, [props.value, props.selectedIndex, menuOptions, routes, props]);
+    activeIndex();
+  }, [path]);
 
   const tabs = (
     <React.Fragment>
