@@ -88,6 +88,9 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("sm")]: {
       padding: 25,
     },
+    [theme.breakpoints.down("xs")]: {
+      padding: 5,
+    },
   },
   revolutionBackground: {
     backgroundImage: `url('/assets/repeatingBackground.svg')`,
@@ -323,7 +326,7 @@ export default function LandingPage(props) {
               Reach More. Discover More. Sell More.
             </Typography>
             <Typography variant="subtitle1">
-              Optimized for Search Engines, built for speed.
+              Optimized for Search Engines, {matchesXS && <br />}built for speed.
             </Typography>
             <Button
               component={Link}

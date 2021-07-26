@@ -124,7 +124,15 @@ export default function CustomSoftware(props) {
         </Hidden>
         <Grid item container direction="column" className={classes.heading}>
           <Grid item>
-            <Typography align={matchesMD ? "center" : undefined} variant="h1">
+            <Typography
+              align={matchesMD ? "center" : undefined}
+              variant="h1"
+              style={{
+                lineHeight: matchesXS ? 1.1 : null,
+                marginBottom: matchesXS ? "0.5em" : null,
+                fontSize: "2.25em",
+              }}
+            >
               Custom Software Development
             </Typography>
           </Grid>
@@ -307,7 +315,7 @@ export default function CustomSoftware(props) {
           direction={matchesSM ? "column" : "row"}
           md
         >
-          <Grid item md>
+          <Grid item md style={{ marginBottom: matchesSM ? "2em" : null }}>
             <Lottie
               options={scaleOptions}
               style={{ maxHeight: 260, maxWidth: 280 }}
@@ -413,7 +421,7 @@ export default function CustomSoftware(props) {
               </Typography>
             </Grid>
           </Grid>
-          <Grid item md>
+          <Grid item md style={{ marginTop: matchesSM ? "2em" : null }}>
             <Lottie
               options={automationOptions}
               style={{ maxHeight: 290, maxWidth: 280 }}
@@ -427,7 +435,7 @@ export default function CustomSoftware(props) {
           direction={matchesSM ? "column" : "row"}
           md
         >
-          <Grid item md>
+          <Grid item md style={{ marginBottom: matchesSM ? "2em" : null }}>
             <Lottie
               options={uxOptions}
               style={{ maxHeight: 310, maxWidth: 155 }}
